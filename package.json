@@ -1,0 +1,70 @@
+{
+    "name": "vue-skeleton",
+    "version": "1.0.0-dev",
+    "description": "Vue Skeleton",
+    "keywords": [
+        "gulp",
+        "vue",
+        "vue router",
+        "vue i18n",
+        "templating",
+        "skeleton",
+        "boilerplate",
+        "bootstrap",
+        "fontawesome",
+        "slick",
+        "carousel",
+        "lazyload",
+        "css user agent",
+        "cssua",
+        "cookieconsent",
+        "cookie",
+        "docker",
+        "jquery"
+    ],
+    "author": {
+        "name": "InsanityMeetsHH",
+        "email": "software@insanitymeetshh.net",
+        "url": "https://www.insanitymeetshh.net"
+    },
+    "bugs": {
+        "url": "https://github.com/InsanityMeetsHH/vue-skeleton/issues"
+    },
+    "license": "MIT",
+    "homepage": "http://gulp.insanitymeetshh.net",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/InsanityMeetsHH/vue-skeleton.git"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.26.5",
+        "del": "^4.1.1",
+        "gulp": "^4.0.1",
+        "gulp-autoprefixer": "^6.1.0",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-eslint": "^5.0.0",
+        "gulp-imagemin": "^5.0.3",
+        "gulp-jsonminify": "^1.1.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-sass-lint": "^1.4.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-uglify-es": "^1.0.4"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "~5.8.1",
+        "bootstrap": "~4.3.1",
+        "cookieconsent": "^3.1.0",
+        "cookieconsent-scss-less": "^3.0.6",
+        "cssuseragent": "^2.1.31",
+        "jquery": "~3.3.1",
+        "slick-carousel": "^1.8.1",
+        "vanilla-lazyload": "^8.17.0",
+        "vue": "^2.6.10",
+        "vue-i18n": "^8.11.2",
+        "vue-router": "^3.0.6"
+    },
+    "scripts": {
+        "postinstall": "php src/php/npm-postinstall.php"
+    }
+}
