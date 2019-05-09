@@ -37,19 +37,24 @@
         "url": "git://github.com/InsanityMeetsHH/vue-skeleton.git"
     },
     "devDependencies": {
+        "@babel/core": "^7.4.4",
+        "@babel/plugin-transform-modules-amd": "^7.2.0",
         "browser-sync": "^2.26.5",
         "del": "^4.1.1",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^6.1.0",
+        "gulp-babel": "^8.0.0",
         "gulp-clean-css": "^4.2.0",
         "gulp-concat": "^2.6.1",
         "gulp-eslint": "^5.0.0",
         "gulp-imagemin": "^5.0.3",
         "gulp-jsonminify": "^1.1.0",
+        "gulp-rename": "^1.4.0",
         "gulp-sass": "^4.0.2",
         "gulp-sass-lint": "^1.4.0",
         "gulp-sourcemaps": "^2.6.5",
-        "gulp-uglify-es": "^1.0.4"
+        "gulp-uglify-es": "^1.0.4",
+        "gulp-vue-single-file-component": "^1.0.10"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "~5.8.2",
@@ -58,6 +63,7 @@
         "cookieconsent-scss-less": "^3.0.6",
         "cssuseragent": "^2.1.31",
         "jquery": "~3.3.1",
+        "requirejs": "^2.3.6",
         "slick-carousel": "^1.8.1",
         "vanilla-lazyload": "^8.17.0",
         "vue": "^2.6.10",

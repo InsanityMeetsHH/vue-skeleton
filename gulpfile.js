@@ -2,15 +2,18 @@ var browserSync = require('browser-sync').create();
 var del         = require('del');
 var gulp        = require('gulp');
 var prefixer    = require('gulp-autoprefixer');
+var babel       = require('gulp-babel');
 var minifyCss   = require('gulp-clean-css');
 var concat      = require('gulp-concat');
 var eslint      = require('gulp-eslint');
 var imagemin    = require('gulp-imagemin');
 var minifyJson  = require('gulp-jsonminify');
+var rename      = require('gulp-rename');
 var sass        = require('gulp-sass');
 var sassLint    = require('gulp-sass-lint');
 var sourcemaps  = require('gulp-sourcemaps');
 var uglify      = require('gulp-uglify-es').default;
+var vueSfc      = require('gulp-vue-single-file-component');
 
 var config      = require('./gulpfile-config.json');
 
@@ -44,20 +47,21 @@ function js() {
     return gulp.src([
             'node_modules/jquery/dist/jquery.js',
             'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-            'node_modules/vue/dist/vue.js', // for DEV
+//            'node_modules/requirejs/require.js',
+//            'node_modules/vue/dist/vue.js', // for DEV
 //            'node_modules/vue/dist/vue.min.js', // for PROD
             'node_modules/@fortawesome/fontawesome-free/js/all.js',
             config.sourcePath + 'js/lib/**/*.js',
-            'node_modules/vue-router/dist/vue-router.js', // for DEV
+//            'node_modules/vue-router/dist/vue-router.js', // for DEV
 //            'node_modules/vue-router/dist/vue-router.min.js', // for PROD
-            'node_modules/vue-i18n/dist/vue-i18n.js',
+//            'node_modules/vue-i18n/dist/vue-i18n.js',
             'node_modules/slick-carousel/slick/slick.js',
             'node_modules/cssuseragent/cssua.js',
             'node_modules/vanilla-lazyload/dist/lazyload.js',
             'node_modules/cookieconsent/src/cookieconsent.js',
             config.sourcePath + 'js/plugin/**/*.js',
             config.sourcePath + 'js/module/**/*.js',
-            config.sourcePath + 'js/vue/**/*.js',
+//            config.sourcePath + 'js/vue/**/*.js',
             config.sourcePath + 'js/scripts.js'
         ])
         .pipe(sourcemaps.init())
@@ -71,7 +75,8 @@ function js() {
 // lint js files
 function jsLint() {
     return gulp.src([
-            config.sourcePath + 'js/**/*.js'
+            config.sourcePath + 'js/{lib,module,plugin}/*.js',
+            config.sourcePath + 'js/scripts.js'
         ])
         .pipe(eslint(require('./js-lint.json')))
         .pipe(eslint.format())
@@ -135,6 +140,22 @@ function svg() {
         .pipe(gulp.dest(config.publicPath + 'svg/'));
 }
 
+// transpile vue js files
+function vueJs() {
+    return gulp.src(config.sourcePath + 'js/vue/**/*.js')
+        .pipe(babel({ plugins: ['@babel/plugin-transform-modules-amd'] }))
+        .pipe(gulp.dest(config.publicPath + 'js/vue/'));
+}
+
+// transpile vue files
+function vue() {
+    return gulp.src(config.sourcePath + 'js/vue/components/**/*.vue')
+        .pipe(vueSfc({ debug: false, loadCssMethod: 'loadCss' }))
+        .pipe(babel({ plugins: ['@babel/plugin-transform-modules-amd'] }))
+        .pipe(rename({ extname: '.js' }))
+        .pipe(gulp.dest(config.publicPath + 'js/vue/components/'));
+}
+
 // clean up folders
 function cleanUp() {
 //    del([
@@ -149,6 +170,10 @@ function cleanUp() {
     return del([
             config.publicPath + 'css/**/*',
             config.publicPath + 'js/**/*',
+            '!' + config.publicPath + 'js/require.js',
+            '!' + config.publicPath + 'js/vue.js',
+            '!' + config.publicPath + 'js/vue-router.js',
+            '!' + config.publicPath + 'js/vue-i18n.js',
             config.publicPath + 'img/**/*',
             config.publicPath + 'json/**/*',
             config.publicPath + 'font/**/*',
@@ -176,7 +201,12 @@ function watch() {
     // watch scss files
     gulp.watch(config.sourcePath + 'scss/**', gulp.series(scss, scssLint));
     // watch js files
-    gulp.watch(config.sourcePath + 'js/**', gulp.series(js, jsLint));
+    gulp.watch([
+        config.sourcePath + 'js/{lib,module,plugin}/*.js',
+        config.sourcePath + 'js/scripts.js'
+    ], gulp.series(js, jsLint));
+    // watch vue files
+    gulp.watch(config.sourcePath + 'js/vue/**', gulp.series(vue, vueJs));
     // watch images
     gulp.watch(config.sourcePath + 'img/**', img);
     // watch json files
@@ -192,7 +222,12 @@ function watchAndReload() {
     // watch scss files
     gulp.watch(config.sourcePath + 'scss/**', gulp.series(scss, scssLint));
     // watch js files
-    gulp.watch(config.sourcePath + 'js/**', gulp.series(js, jsLint));
+    gulp.watch([
+        config.sourcePath + 'js/{lib,module,plugin}/*.js',
+        config.sourcePath + 'js/scripts.js'
+    ], gulp.series(js, jsLint));
+    // watch vue files
+    gulp.watch(config.sourcePath + 'js/vue/**', gulp.series(vue, vueJs));
     // watch images
     gulp.watch(config.sourcePath + 'img/**', img);
     // watch json files
@@ -214,6 +249,8 @@ exports.json = json;
 exports.img = img;
 exports.font = font;
 exports.svg = svg;
+exports.vueJs = vueJs;
+exports.vue = vue;
 exports.cleanUp = cleanUp;
 exports.watch = watch;
 exports.watchAndReload = watchAndReload;
@@ -221,7 +258,7 @@ exports.browserSyncInit = browserSyncInit;
 exports.browserSyncReload = browserSyncReload;
 
 // build task
-gulp.task('build', gulp.series(cleanUp, scss, js, scssLint, jsLint, json, img, font, svg));
+gulp.task('build', gulp.series(cleanUp, scss, js, scssLint, jsLint, json, img, font, svg, vue, vueJs));
 
 // default task if just called gulp
 gulp.task('default', gulp.parallel(watchAndReload, browserSyncInit));

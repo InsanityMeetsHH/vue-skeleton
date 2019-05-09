@@ -37,6 +37,54 @@ $meta = array(
         <script>
             function setCookie(e,t,n){var o=new Date;o.setTime(o.getTime()+24*n*60*60*1e3);var i="expires="+o.toUTCString();document.cookie=e+"="+t+";"+i+";path=/"}function getCookie(e){for(var t=e+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(t))return i.substring(t.length,i.length)}return""}
             var cookiesAllowed = getCookie('cookieconsent_status') !== 'deny';
+            var cookieLayer = {};
+            var require = {
+                baseUrl: '/',
+                paths: {
+                    'vue': 'js/vue.js?v=2.6.10',
+                    'vue-router': 'js/vue-router.js?v=3.0.6',
+                    'vue-i18n': 'js/vue-i18n.js?v=8.11.2'
+                }
+            };
+        
+            loadCss = function(config) {
+                var head = document.getElementsByTagName('head')[0];
+
+                if (config.content) {
+                    var style  = document.createElement('style');
+                    style.type = 'text/css';
+
+                    if (style.styleSheet) {
+                        style.styleSheet.cssText = config.content;
+                    } else {
+                        style.innerHTML = config.content;
+                    }
+
+                    head.appendChild(style);
+                } else if (config.url) {
+                    var link  = document.createElement('link');
+                    link.href = config.url;
+                    link.rel  = 'stylesheet';
+                    link.type = 'text/css';
+                    head.appendChild(link);
+                }
+            };
+            
+            // if cookies allowed - load tracking code
+            if (cookiesAllowed) {
+                // Google Analaytics, Google Tag Manager, ...
+//                var s = document.createElement('script');
+//                s.type = 'text/javascript';
+//                s.async = true;
+//                s.src = 'https://www.googletagmanager.com/gtag/js?id=UA-NUMBER-X';
+//                var h = document.getElementsByTagName('head')[0];
+//                h.appendChild(s, h);
+//            
+//                window.dataLayer = window.dataLayer || [];
+//                function gtag(){dataLayer.push(arguments);}
+//                gtag('js', new Date());
+//                gtag('config', 'UA-NUMBER-X', {'anonymize_ip': true});
+            }
         </script>
         
         <title><?php echo $meta['title']; ?></title>
@@ -80,40 +128,10 @@ $meta = array(
         <link rel="shortcut icon" href="img/favicons/favicon.ico">
         
         <link rel="stylesheet" href="css/styles.css?v=1.0.0">
-        <script type="application/javascript">
-            // if cookies allowed - load tracking code
-            if (cookiesAllowed) {
-                // Google Analaytics, Google Tag Manager, ...
-//                var s = document.createElement('script');
-//                s.type = 'text/javascript';
-//                s.async = true;
-//                s.src = 'https://www.googletagmanager.com/gtag/js?id=UA-NUMBER-X';
-//                var h = document.getElementsByTagName('head')[0];
-//                h.appendChild(s, h);
-//            
-//                window.dataLayer = window.dataLayer || [];
-//                function gtag(){dataLayer.push(arguments);}
-//                gtag('js', new Date());
-//                gtag('config', 'UA-NUMBER-X', {'anonymize_ip': true});
-            }
-            
-            var vueTemplates = {
-                <?php
-                $vueTemplates = scandir(__DIR__ . '/../vue/');
-                
-                foreach ($vueTemplates as $key => $vueTemplate) {
-                    if ($vueTemplate !== '.' && $vueTemplate !== '..') {
-                        echo str_replace('.vue', '', $vueTemplate) . ' :\'' . htmlMinify(file_get_contents(__DIR__ . '/../vue/' . $vueTemplate)) . '\'';
-                        echo ($key + 1) === count($vueTemplates) ? '' : ',';
-                        echo PHP_EOL;
-                    }
-                }
-                ?>
-            };
-        </script>
     </head>
     <body>
         <div id="app"></div>
         <script src="js/scripts.js?v=1.0.0"></script>
+        <script data-main="js/vue/app" src="js/require.js?v=2.3.5"></script>
     </body>
 </html>

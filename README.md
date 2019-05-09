@@ -13,6 +13,7 @@
 * [Vue 2](https://vuejs.org/)
 * [Vue Router 3](https://router.vuejs.org/)
 * [Vue i18n 8](https://kazupon.github.io/vue-i18n/)
+* [Vue SFC 1](https://github.com/nfplee/gulp-vue-single-file-component)
 
 ## Required
 * [Node.js](http://nodejs.org/en/download/)
@@ -42,10 +43,12 @@ Possible local servers (examples): http://imhh-vue.localhost/ or http://localhos
 | gulp font     | copy font                                                                                                       |
 | gulp img      | compress/copy img                                                                                               |
 | gulp js       | uglify/minify/concat js                                                                                         |
-| gulp jsLint   | checks js follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/js-lint.json)     |
+| gulp jsLint   | checks js follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/js-lint.json)        |
 | gulp scss     | compile/minify/concat scss                                                                                      |
-| gulp scssLint | checks scss follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/scss-lint.json) |
+| gulp scssLint | checks scss follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/scss-lint.json)    |
 | gulp svg      | compress/copy svg                                                                                               |
+| gulp vue      | transpile vue file                                                                                              |
+| gulp vueJs    | transpile vue js file                                                                                           |
 | gulp watch    | watch scss, js, img, font and svg files                                                                         |
 
 ## Installation with [Docker](https://www.docker.com/)
@@ -63,3 +66,4 @@ Possible local servers (examples): http://imhh-vue.localhost/ or http://localhos
 ## Links
 * [ESLint Rules](https://eslint.org/docs/rules/)
 * [Sass Lint Rules](https://github.com/sasstools/sass-lint/tree/develop/docs/rules)
+* [Vue SFC](https://github.com/nfplee/gulp-vue-single-file-component)

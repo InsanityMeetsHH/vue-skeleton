@@ -26,19 +26,21 @@
         }
     }
     
-    &~ footer {
-        margin-bottom: 200px;
-        
-        @include media-breakpoint-up('sm') {
-            margin-bottom: 160px;
-        }
-        
-        @include media-breakpoint-up('md') {
-            margin-bottom: 120px;
-        }
-        
-        @include media-breakpoint-up('lg') {
-            margin-bottom: 100px;
+    &~ div {
+        footer {
+            margin-bottom: 200px;
+
+            @include media-breakpoint-up('sm') {
+                margin-bottom: 160px;
+            }
+
+            @include media-breakpoint-up('md') {
+                margin-bottom: 120px;
+            }
+
+            @include media-breakpoint-up('lg') {
+                margin-bottom: 100px;
+            }
         }
     }
     
