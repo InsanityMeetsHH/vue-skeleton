@@ -3,19 +3,39 @@ var del         = require('del');
 var gulp        = require('gulp');
 var prefixer    = require('gulp-autoprefixer');
 var babel       = require('gulp-babel');
+var browserify  = require('gulp-browserify');
 var minifyCss   = require('gulp-clean-css');
 var concat      = require('gulp-concat');
 var eslint      = require('gulp-eslint');
 var imagemin    = require('gulp-imagemin');
 var minifyJson  = require('gulp-jsonminify');
+var plumber     = require('gulp-plumber');
 var rename      = require('gulp-rename');
 var sass        = require('gulp-sass');
 var sassLint    = require('gulp-sass-lint');
 var sourcemaps  = require('gulp-sourcemaps');
 var uglify      = require('gulp-uglify-es').default;
 var vueSfc      = require('gulp-vue-single-file-component');
+var vueify      = require('gulp-vueify2');
 
 var config      = require('./gulpfile-config.json');
+
+function browserifyCustom() {
+    return gulp.src('src/js/vue/app.js')
+        .pipe(plumber())
+        .pipe(browserify({
+            debug: true,
+            transform: [['vueify'], {sourceType: "module"}]
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('public/js/vue2/'));
+}
+
+gulp.task('vueify', function () {
+  return gulp.src('src/js/vue/components/**/*.vue')
+    .pipe(vueify())
+    .pipe(gulp.dest('public/js/vue2/'));
+});
 
 // processing scss to css and minify result
 function scss() {
@@ -50,11 +70,16 @@ function js() {
 //            'node_modules/requirejs/require.js',
 //            'node_modules/vue/dist/vue.js', // for DEV
 //            'node_modules/vue/dist/vue.min.js', // for PROD
-            'node_modules/@fortawesome/fontawesome-free/js/all.js',
+//            'node_modules/@fortawesome/fontawesome-free/js/all.js',
             config.sourcePath + 'js/lib/**/*.js',
 //            'node_modules/vue-router/dist/vue-router.js', // for DEV
 //            'node_modules/vue-router/dist/vue-router.min.js', // for PROD
 //            'node_modules/vue-i18n/dist/vue-i18n.js',
+//            'node_modules/@fortawesome/fontawesome-svg-core/index.js',
+//            'node_modules/@fortawesome/free-brands-svg-icons/index.js',
+//            'node_modules/@fortawesome/free-regular-svg-icons/index.js',
+//            'node_modules/@fortawesome/free-solid-svg-icons/index.js',
+//            'node_modules/@fortawesome/vue-fontawesome/index.js',
             'node_modules/slick-carousel/slick/slick.js',
             'node_modules/cssuseragent/cssua.js',
             'node_modules/vanilla-lazyload/dist/lazyload.js',
@@ -174,6 +199,11 @@ function cleanUp() {
             '!' + config.publicPath + 'js/vue.js',
             '!' + config.publicPath + 'js/vue-router.js',
             '!' + config.publicPath + 'js/vue-i18n.js',
+            '!' + config.publicPath + 'js/fontawesome-svg-core.js',
+            '!' + config.publicPath + 'js/free-brands-svg-icons.js',
+            '!' + config.publicPath + 'js/free-regular-svg-icons.js',
+            '!' + config.publicPath + 'js/free-solid-svg-icons.js',
+            '!' + config.publicPath + 'js/vue-fontawesome.js',
             config.publicPath + 'img/**/*',
             config.publicPath + 'json/**/*',
             config.publicPath + 'font/**/*',
@@ -241,6 +271,7 @@ function watchAndReload() {
     gulp.watch('templates/**/*.{php,html,phtml}', browserSyncReload);
 }
 
+exports.browserifyCustom = browserifyCustom;
 exports.scss = scss;
 exports.scssLint = scssLint;
 exports.js = js;

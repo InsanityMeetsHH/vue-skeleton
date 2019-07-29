@@ -1,5 +1,5 @@
 {
-    "localServer": "http://localhost/imhh-gulp/public/",
+    "localServer": "http://localhost/imhh-vue/public/",
     "sourcePath": "src/",
     "publicPath": "public/",
     "systemPath": "path/to/system/"

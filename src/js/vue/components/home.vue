@@ -22,120 +22,70 @@
                 <div class="col-12 col-md-8 pb-5">
                     <div class="slider slider-brands" data-slick='{"responsive": [{"breakpoint": 575,"settings": {"slidesToShow": 2, "slidesToScroll": 1}},{"breakpoint": 991, "settings": {"slidesToShow": 3, "slidesToScroll": 1}}]}'>
                         <div class="slider-item">
-                            <!-- Fonts with CSS Example (use only without Fontawesome JavaScript) -->
-                            <!--<span class="fa-stack fa-3x">
-                                <i class="far fa-stack-2x fa-square"></i>
-                                <i class="fab fa-stack-1x fa-inverse fa-vuejs"></i>
-                            </span><br/>-->
-
-                            <!-- SVG with JavaScript Example -->
-                            <div class="fa-10x">
-                                <span class="fa-layers">
-                                    <i class="far fa-square"></i>
-                                    <i class="fab fa-vuejs fa-inverse" data-fa-transform="shrink-6"></i>
-                                </span>
-                            </div>
+                            <!-- Vuejs Example -->
+                            <font-awesome-layers class="fa-10x">
+                                <font-awesome-icon :icon="['far', 'square']"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fab', 'vuejs']" class="fa-inverse" transform="shrink-6"></font-awesome-icon>
+                            </font-awesome-layers>
                             <a href="https://vuejs.org/" target="_blank" class="d-block label">{{ $t("vuejs") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Fonts with CSS Example (use only without Fontawesome JavaScript) -->
-                            <!--<span class="fa-stack fa-3x">
-                                <i class="far fa-stack-2x fa-square"></i>
-                                <i class="fas fa-stack-1x fa-inverse fa-bold"></i>
-                            </span><br/>-->
-
-                            <!-- SVG with JavaScript Example -->
-                            <div class="fa-10x">
-                                <span class="fa-layers">
-                                    <i class="far fa-square"></i>
-                                    <i class="fas fa-bold fa-inverse" data-fa-transform="shrink-6"></i>
-                                </span>
-                            </div>
+                            <!-- Vuejs Example -->
+                            <font-awesome-layers class="fa-10x">
+                                <font-awesome-icon :icon="['far', 'square']"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'bold']" class="fa-inverse" transform="shrink-6"></font-awesome-icon>
+                            </font-awesome-layers>
                             <a href="https://getbootstrap.com/" target="_blank" class="d-block label">{{ $t("bootstrap") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Fonts with CSS Example (use only without Fontawesome JavaScript) -->
-                            <!--<span class="fa-stack fa-3x">
-                                <i class="far fa-stack-2x fa-square"></i>
-                                <i class="fab fa-stack-1x fa-inverse fa-font-awesome-flag"></i>
-                            </span><br/>-->
-
-                            <!-- SVG with JavaScript Example -->
-                            <div class="fa-10x">
-                                <span class="fa-layers">
-                                    <i class="far fa-square"></i>
-                                    <i class="fab fa-font-awesome-flag fa-inverse" data-fa-transform="shrink-6"></i>
-                                </span>
-                            </div>
+                            <!-- Vuejs Example -->
+                            <font-awesome-layers class="fa-10x">
+                                <font-awesome-icon :icon="['far', 'square']"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fab', 'font-awesome-flag']" class="fa-inverse" transform="shrink-6"></font-awesome-icon>
+                            </font-awesome-layers>
                             <a href="https://fontawesome.com/" target="_blank" class="d-block label">{{ $t("fontawesome") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Fonts with CSS Example (use only without Fontawesome JavaScript) -->
-                            <!--<span class="fa-stack fa-3x">
-                                <i class="far fa-stack-2x fa-square"></i>
-                                <i class="fas fa-stack-1x fa-inverse fa-images"></i>
-                            </span><br/>-->
-
-                            <!-- SVG with JavaScript Example -->
-                            <div class="fa-10x">
-                                <span class="fa-layers">
-                                    <i class="fas fa-square"></i>
-                                    <i class="fas fa-image fa-inverse" data-fa-transform="shrink-7"></i>
-                                    <i class="fas fa-chevron-left fa-inverse" data-fa-transform="shrink-13 left-6"></i>
-                                    <i class="fas fa-chevron-right fa-inverse" data-fa-transform="shrink-13 right-6"></i>
-                                </span>
-                            </div>
+                            <!-- Vuejs Example -->
+                            <font-awesome-layers class="fa-10x">
+                                <font-awesome-icon :icon="['fas', 'square']"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'image']" class="fa-inverse" transform="shrink-7"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'chevron-left']" class="fa-inverse" transform="shrink-13 left-6"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'chevron-right']" class="fa-inverse" transform="shrink-13 right-6"></font-awesome-icon>
+                            </font-awesome-layers>
                             <a href="http://kenwheeler.github.io/slick/" target="_blank" class="d-block label">{{ $t("slick") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Fonts with CSS Example (use only without Fontawesome JavaScript) -->
-                            <!--<span class="fa-stack fa-3x">
-                                <i class="far fa-stack-2x fa-square"></i>
-                                <i class="fas fa-stack-1x fa-inverse fa-image"></i>
-                            </span><br/>-->
-
-                            <!-- SVG with JavaScript Example -->
-                            <div class="fa-10x">
-                                <span class="fa-layers">
-                                    <i class="fas fa-square"></i>
-                                    <i class="fas fa-image fa-inverse" data-fa-transform="shrink-4"></i>
-                                    <i class="fas fa-sync" data-fa-transform="shrink-14 up-2.5 right-4"></i>
-                                </span>
-                            </div>
+                            <!-- Vuejs Example -->
+                            <font-awesome-layers class="fa-10x">
+                                <font-awesome-icon :icon="['fas', 'square']"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'image']" class="fa-inverse" transform="shrink-4"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'sync']" transform="shrink-14 up-2.5 right-4"></font-awesome-icon>
+                            </font-awesome-layers>
                             <a href="https://www.andreaverlicchi.eu/lazyload/" target="_blank" class="d-block label">{{ $t("lazyload") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Fonts with CSS Example (use only without Fontawesome JavaScript) -->
-                            <!--<span class="fa-stack fa-3x">
-                                <i class="far fa-stack-2x fa-square"></i>
-                                <i class="fab fa-stack-1x fa-inverse fa-css3"></i>
-                            </span><br/>-->
-
-                            <!-- SVG with JavaScript Example -->
-                            <div class="fa-10x">
-                                <span class="fa-layers">
-                                    <i class="fas fa-square"></i>
-                                    <i class="fas fa-user-secret fa-inverse" data-fa-transform="shrink-4"></i>
-                                    <i class="fab fa-css3" data-fa-transform="shrink-14 down-4 right-3.5"></i>
-                                    <i class="fab fa-html5" data-fa-transform="shrink-14 down-4 left-3.5"></i>
-                                </span>
-                            </div>
+                            <!-- Vuejs Example -->
+                            <font-awesome-layers class="fa-10x">
+                                <font-awesome-icon :icon="['fas', 'square']"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'user-secret']" class="fa-inverse" transform="shrink-4"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fab', 'css3']" transform="shrink-14 down-4 right-3.5"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fab', 'html5']" transform="shrink-14 down-4 left-3.5"></font-awesome-icon>
+                            </font-awesome-layers>
                             <a href="https://www.npmjs.com/package/cssuseragent" target="_blank" class="d-block label">{{ $t("cssua") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- SVG with JavaScript Example -->
-                            <div class="fa-10x">
-                                <span class="fa-layers">
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle fa-inverse" data-fa-transform="shrink-15 up-4 left-4"></i>
-                                    <i class="fas fa-circle fa-inverse" data-fa-transform="shrink-15 down-0 left-5.5"></i>
-                                    <i class="fas fa-circle fa-inverse" data-fa-transform="shrink-15 down-4.2 right-4"></i>
-                                    <i class="fas fa-circle fa-inverse" data-fa-transform="shrink-13 down-4 left-2"></i>
-                                    <i class="fas fa-circle fa-inverse" data-fa-transform="shrink-13"></i>
-                                    <i class="fas fa-circle fa-inverse" data-fa-transform="shrink-14 right-5"></i>
-                                    <i class="fas fa-circle fa-inverse" data-fa-transform="shrink-14 up-5"></i>
-                                </span>
-                            </div>
+                            <!-- Vuejs Example -->
+                            <font-awesome-layers class="fa-10x">
+                                <font-awesome-icon :icon="['fas', 'circle']"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'circle']" class="fa-inverse" transform="shrink-15 up-4 left-4"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'circle']" class="fa-inverse" transform="shrink-15 down-0 left-5.5"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'circle']" class="fa-inverse" transform="shrink-15 down-4.2 right-4"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'circle']" class="fa-inverse" transform="shrink-13 down-4 left-2"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'circle']" class="fa-inverse" transform="shrink-13"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'circle']" class="fa-inverse" transform="shrink-14 right-5"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'circle']" class="fa-inverse" transform="shrink-14 up-5"></font-awesome-icon>
+                            </font-awesome-layers>
                             <a href="https://github.com/insites/cookieconsent" target="_blank" class="d-block label">{{ $t("cookieconsent") }}</a>
                         </div>
                     </div>
