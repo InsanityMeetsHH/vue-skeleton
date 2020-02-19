@@ -29,6 +29,7 @@ $ cd [project-name]
 $ rm -rf .git
 $ npm i
 $ gulp build
+$ node server.js
 ```
 Change `localServer` in [`gulpfile-config.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile-config.dist.json) to your local server.
 

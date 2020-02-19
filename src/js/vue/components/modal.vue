@@ -33,7 +33,7 @@
                                 <tbody>
                                     <tr>
                                         <td>cookieconsent_status</td>
-                                        <td>gulp.insanitymeetshh.net</td>
+                                        <td>vue.insanitymeetshh.net</td>
                                         <td>{{ $t("cpm-cc-status") }}</td>
                                         <td><span class="text-nowrap">{{ $t("year", ['1']) }}</span></td>
                                         <td><span class="text-nowrap">{{ $t("type", ['2']) }}</span></td>
