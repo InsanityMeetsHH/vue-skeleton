@@ -38,19 +38,6 @@ $meta = array(
             function setCookie(e,t,n){var o=new Date;o.setTime(o.getTime()+24*n*60*60*1e3);var i="expires="+o.toUTCString();document.cookie=e+"="+t+";"+i+";path=/"}function getCookie(e){for(var t=e+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(t))return i.substring(t.length,i.length)}return""}
             var cookiesAllowed = getCookie('cookieconsent_status') !== 'deny';
             var cookieLayer = {};
-            var require = {
-                baseUrl: '/',
-                paths: {
-                    'vue': 'js/vue.js?v=2.6.10',
-                    'vue-router': 'js/vue-router.js?v=3.0.6',
-                    'vue-i18n': 'js/vue-i18n.js?v=8.11.2',
-                    '@fortawesome/fontawesome-svg-core': 'js/fontawesome-svg-core.js?v=1.2.19',
-                    '@fortawesome/free-brands-svg-icons': 'js/free-brands-svg-icons.js?v=5.9.0',
-                    '@fortawesome/free-regular-svg-icons': 'js/free-regular-svg-icons.js?v=5.9.0',
-                    '@fortawesome/free-solid-svg-icons': 'js/free-solid-svg-icons.js?v=5.9.0',
-                    '@fortawesome/vue-fontawesome': 'js/vue-fontawesome.js?v=0.1.6'
-                }
-            };
         
             loadCss = function(config) {
                 var head = document.getElementsByTagName('head')[0];
@@ -132,11 +119,11 @@ $meta = array(
         <meta name="theme-color" content="<?php echo $meta['themeColor']; ?>">
         <link rel="shortcut icon" href="img/favicons/favicon.ico">
         
-        <link rel="stylesheet" href="css/styles.css?v=1.0.0">
+        <link rel="stylesheet" href="css/styles.css?v=1.0.0-dev">
     </head>
     <body>
         <div id="app"></div>
-        <script src="js/scripts.js?v=1.0.0"></script>
-        <script data-main="js/vue/app" src="js/require.js?v=2.3.6"></script>
+        <script src="js/scripts.js?v=1.0.0-dev"></script>
+        <script data-main="js/vue/app" src="js/require/require.js?v=2.3.6"></script>
     </body>
 </html>
