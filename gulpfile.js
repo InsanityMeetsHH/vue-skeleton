@@ -30,7 +30,7 @@ function scss() {
         }))
         .pipe(gulpif(isEnv(['test', 'prod'], config.env), minifyCss({compatibility: 'ie8'})))
         .pipe(sourcemaps.write('./'))
-//        .pipe(gulp.dest(app.systemPath + 'css/'))
+//        .pipe(gulp.dest(config.systemPath + 'css/'))
         .pipe(gulp.dest(config.publicPath + 'css/'));
 }
 
@@ -63,7 +63,7 @@ function js() {
         .pipe(concat('scripts.js'))
         .pipe(gulpif(isEnv(['test', 'prod'], config.env), uglify()))
         .pipe(sourcemaps.write('./'))
-//        .pipe(gulp.dest(app.systemPath + 'js/'))
+//        .pipe(gulp.dest(config.systemPath + 'js/'))
         .pipe(gulp.dest(config.publicPath + 'js/'));
 }
 
@@ -107,7 +107,7 @@ function jsRequire() {
         returnValue = gulp.src(modules[key])
             .pipe(uglify())
             .pipe(rename({ basename: key }))
-//            .pipe(gulp.dest(app.systemPath + 'js/require/'))
+//            .pipe(gulp.dest(config.systemPath + 'js/require/'))
             .pipe(gulp.dest(config.publicPath + 'js/require/'));
     }
     return returnValue;
@@ -136,7 +136,7 @@ function img() {
                 ]
             })
         ]))
-//        .pipe(gulp.dest(app.systemPath + 'img/'))
+//        .pipe(gulp.dest(config.systemPath + 'img/'))
         .pipe(gulp.dest(config.publicPath + 'img/'));
 }
 
@@ -147,7 +147,7 @@ function font() {
             'node_modules/slick-carousel/slick/fonts/**',
             config.sourcePath + 'font/**'
         ])
-//        .pipe(gulp.dest(app.systemPath + 'font/'))
+//        .pipe(gulp.dest(config.systemPath + 'font/'))
         .pipe(gulp.dest(config.publicPath + 'font/'));
 }
 
@@ -166,7 +166,7 @@ function svg() {
                 ]
             })
         ]))
-//        .pipe(gulp.dest(app.systemPath + 'svg/'))
+//        .pipe(gulp.dest(config.systemPath + 'svg/'))
         .pipe(gulp.dest(config.publicPath + 'svg/'));
 }
 
@@ -189,12 +189,12 @@ function vue() {
 // clean up folders
 function cleanUp() {
 //    del([
-//            app.systemPath + 'css/**/*',
-//            app.systemPath + 'js/**/*',
-//            app.systemPath + 'img/**/*',
-//            app.systemPath + 'json/**/*',
-//            app.systemPath + 'font/**/*',
-//            app.systemPath + 'svg/**/*'
+//            config.systemPath + 'css/**/*',
+//            config.systemPath + 'js/**/*',
+//            config.systemPath + 'img/**/*',
+//            config.systemPath + 'json/**/*',
+//            config.systemPath + 'font/**/*',
+//            config.systemPath + 'svg/**/*'
 //        ], {force: true});
         
     return del([
@@ -220,7 +220,7 @@ function browserSyncInit(done) {
         },
         // ui: false, // enable in production
         // server: false, // enable if you use Docker
-        // proxy: app.localServer // enable if you use Docker
+        // proxy: config.localServer // enable if you use Docker
     });
     done();
 }

@@ -1,7 +1,7 @@
 {
     "name": "vue-skeleton",
     "version": "1.0.0-dev",
-    "description": "Vue Skeleton with Gulp",
+    "description": "Vue.js Skeleton with Gulp",
     "keywords": [
         "gulp",
         "vue",
