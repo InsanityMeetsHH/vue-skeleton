@@ -21,7 +21,7 @@
         },
         methods: {
             changeLang: function(lang) {
-                var $this = this;
+                const $this = this;
                 
                 jQuery.ajax({
                     dataType: 'json',

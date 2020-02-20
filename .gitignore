@@ -8,7 +8,7 @@
 /public/js/vue/
 /public/font/
 /public/json/
-gulpfile-config.json
+src/app/gulpfile.json
 
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node

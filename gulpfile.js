@@ -1,21 +1,23 @@
-var browserSync = require('browser-sync').create();
-var del         = require('del');
-var gulp        = require('gulp');
-var prefixer    = require('gulp-autoprefixer');
-var babel       = require('gulp-babel');
-var minifyCss   = require('gulp-clean-css');
-var concat      = require('gulp-concat');
-var eslint      = require('gulp-eslint');
-var imagemin    = require('gulp-imagemin');
-var minifyJson  = require('gulp-jsonminify');
-var rename      = require('gulp-rename');
-var sass        = require('gulp-sass');
-var sassLint    = require('gulp-sass-lint');
-var sourcemaps  = require('gulp-sourcemaps');
-var uglify      = require('gulp-uglify-es').default;
-var vueSfc      = require('gulp-vue-single-file-component');
+const browserSync = require('browser-sync').create();
+const del         = require('del');
+const gulp        = require('gulp');
+const prefixer    = require('gulp-autoprefixer');
+const babel       = require('gulp-babel');
+const minifyCss   = require('gulp-clean-css');
+const concat      = require('gulp-concat');
+const eslint      = require('gulp-eslint');
+const gulpif      = require('gulp-if');
+const imagemin    = require('gulp-imagemin');
+const minifyJson  = require('gulp-jsonminify');
+const rename      = require('gulp-rename');
+const sass        = require('gulp-sass');
+const sassLint    = require('gulp-sass-lint');
+const sourcemaps  = require('gulp-sourcemaps');
+const uglify      = require('gulp-uglify-es').default;
+const vueSfc      = require('gulp-vue-single-file-component');
 
-var config      = require('./gulpfile-config.json');
+const config      = require('./src/app/gulpfile.json');
+const isEnv       = require('./src/app/is-env');
 
 // processing scss to css and minify result
 function scss() {
@@ -26,9 +28,9 @@ function scss() {
             overrideBrowserslist: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(minifyCss({compatibility: 'ie8'}))
+        .pipe(gulpif(isEnv(['test', 'prod'], config.env), minifyCss({compatibility: 'ie8'})))
         .pipe(sourcemaps.write('./'))
-//        .pipe(gulp.dest(config.systemPath + 'css/'))
+//        .pipe(gulp.dest(app.systemPath + 'css/'))
         .pipe(gulp.dest(config.publicPath + 'css/'));
 }
 
@@ -37,12 +39,12 @@ function scssLint() {
     return gulp.src([
             config.sourcePath + 'scss/**/*.scss'
         ])
-        .pipe(sassLint(require('./scss-lint.json')))
+        .pipe(sassLint(require('./src/app/scss-lint.json')))
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError());
 }
 
-// concatinate and uglify js files
+// concatenate and uglify js files
 function js() {
     return gulp.src([
             'node_modules/jquery/dist/jquery.js',
@@ -54,14 +56,14 @@ function js() {
             'node_modules/cookieconsent/src/cookieconsent.js',
             config.sourcePath + 'js/plugin/**/*.js',
             config.sourcePath + 'js/module/**/*.js',
-//            config.sourcePath + 'js/vue/**/*.js',
+//            app.sourcePath + 'js/vue/**/*.js',
             config.sourcePath + 'js/scripts.js'
         ])
         .pipe(sourcemaps.init())
         .pipe(concat('scripts.js'))
-        .pipe(uglify())
+        .pipe(gulpif(isEnv(['test', 'prod'], config.env), uglify()))
         .pipe(sourcemaps.write('./'))
-//        .pipe(gulp.dest(config.systemPath + 'js/'))
+//        .pipe(gulp.dest(app.systemPath + 'js/'))
         .pipe(gulp.dest(config.publicPath + 'js/'));
 }
 
@@ -71,7 +73,7 @@ function jsLint() {
             config.sourcePath + 'js/{lib,module,plugin}/*.js',
             config.sourcePath + 'js/scripts.js'
         ])
-        .pipe(eslint(require('./js-lint.json')))
+        .pipe(eslint(require('./src/app/js-lint.json')))
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 }
@@ -80,27 +82,32 @@ function jsLint() {
 function jsRequire() {
     let returnValue;
     const modules = {
-        'node_modules/requirejs/require.js': 'require',
-//        'node_modules/vue/dist/vue.js': 'vue', // for DEV
-        'node_modules/vue/dist/vue.min.js': 'vue', // for PROD
-//        'node_modules/@fortawesome/fontawesome-free/js/all.js': 'fontawesome-free-all',
-//        'node_modules/vue-router/dist/vue-router.js': 'vue-router', // for DEV
-        'node_modules/vue-router/dist/vue-router.min.js': 'vue-router', // for PROD
-        'node_modules/vue-i18n/dist/vue-i18n.js': 'vue-i18n',
-        'node_modules/@fortawesome/fontawesome-svg-core/index.js': 'fontawesome-svg-core',
-        'node_modules/@fortawesome/free-brands-svg-icons/index.js': 'free-brands-svg-icons',
-        'node_modules/@fortawesome/free-regular-svg-icons/index.js': 'free-regular-svg-icons',
-        'node_modules/@fortawesome/free-solid-svg-icons/index.js': 'free-solid-svg-icons',
-        'node_modules/@fortawesome/vue-fontawesome/index.js': 'vue-fontawesome'
+        'require': 'node_modules/requirejs/require.js',
+        // 'vue': 'node_modules/vue/dist/vue.js', // for DEV
+        'vue': 'node_modules/vue/dist/vue.min.js', // for PROD
+        // 'fontawesome-free-all': 'node_modules/@fortawesome/fontawesome-free/js/all.js',
+        // 'vue-router': 'node_modules/vue-router/dist/vue-router.js', // for DEV
+        'vue-router': 'node_modules/vue-router/dist/vue-router.min.js', // for PROD
+        'vue-i18n': 'node_modules/vue-i18n/dist/vue-i18n.js',
+        'fontawesome-svg-core': 'node_modules/@fortawesome/fontawesome-svg-core/index.js',
+        'free-brands-svg-icons': 'node_modules/@fortawesome/free-brands-svg-icons/index.js',
+        'free-regular-svg-icons': 'node_modules/@fortawesome/free-regular-svg-icons/index.js',
+        'free-solid-svg-icons': 'node_modules/@fortawesome/free-solid-svg-icons/index.js',
+        'vue-fontawesome': 'node_modules/@fortawesome/vue-fontawesome/index.js'
     };
+
+    if (isEnv('dev', config.env)) {
+        modules['vue'] = 'node_modules/vue/dist/vue.js';
+        modules['vue-router'] = 'node_modules/vue-router/dist/vue-router.js';
+    }
     
     const moduleKeys = Object.keys(modules);
     
     for (const key of moduleKeys) {
-        returnValue = gulp.src(key)
+        returnValue = gulp.src(modules[key])
             .pipe(uglify())
-            .pipe(rename({ basename: modules[key] }))
-//            .pipe(gulp.dest(config.systemPath + 'js/require/'))
+            .pipe(rename({ basename: key }))
+//            .pipe(gulp.dest(app.systemPath + 'js/require/'))
             .pipe(gulp.dest(config.publicPath + 'js/require/'));
     }
     return returnValue;
@@ -129,7 +136,7 @@ function img() {
                 ]
             })
         ]))
-//        .pipe(gulp.dest(config.systemPath + 'img/'))
+//        .pipe(gulp.dest(app.systemPath + 'img/'))
         .pipe(gulp.dest(config.publicPath + 'img/'));
 }
 
@@ -140,7 +147,7 @@ function font() {
             'node_modules/slick-carousel/slick/fonts/**',
             config.sourcePath + 'font/**'
         ])
-//        .pipe(gulp.dest(config.systemPath + 'font/'))
+//        .pipe(gulp.dest(app.systemPath + 'font/'))
         .pipe(gulp.dest(config.publicPath + 'font/'));
 }
 
@@ -159,7 +166,7 @@ function svg() {
                 ]
             })
         ]))
-//        .pipe(gulp.dest(config.systemPath + 'svg/'))
+//        .pipe(gulp.dest(app.systemPath + 'svg/'))
         .pipe(gulp.dest(config.publicPath + 'svg/'));
 }
 
@@ -182,12 +189,12 @@ function vue() {
 // clean up folders
 function cleanUp() {
 //    del([
-//            config.systemPath + 'css/**/*',
-//            config.systemPath + 'js/**/*',
-//            config.systemPath + 'img/**/*',
-//            config.systemPath + 'json/**/*',
-//            config.systemPath + 'font/**/*',
-//            config.systemPath + 'svg/**/*'
+//            app.systemPath + 'css/**/*',
+//            app.systemPath + 'js/**/*',
+//            app.systemPath + 'img/**/*',
+//            app.systemPath + 'json/**/*',
+//            app.systemPath + 'font/**/*',
+//            app.systemPath + 'svg/**/*'
 //        ], {force: true});
         
     return del([
@@ -202,9 +209,18 @@ function cleanUp() {
 
 // initialize BrowserSync
 function browserSyncInit(done) {
-    // start browsersync
     browserSync.init({
-        proxy: config.localServer
+        port: 3000,
+        server: {
+            baseDir: "public",
+            index: "index.html"
+        },
+        ui: {
+            port: 3001
+        },
+        // ui: false, // enable in production
+        // server: false, // enable if you use Docker
+        // proxy: app.localServer // enable if you use Docker
     });
     done();
 }
@@ -238,26 +254,9 @@ function watch() {
 
 // watch files and reload browser on file change
 function watchAndReload() {
-    // watch scss files
-    gulp.watch(config.sourcePath + 'scss/**', gulp.series(scss, scssLint));
-    // watch js files
-    gulp.watch([
-        config.sourcePath + 'js/{lib,module,plugin}/*.js',
-        config.sourcePath + 'js/scripts.js'
-    ], gulp.series(js, jsLint));
-    // watch vue files
-    gulp.watch(config.sourcePath + 'js/vue/**', gulp.series(vue, vueJs));
-    // watch images
-    gulp.watch(config.sourcePath + 'img/**', img);
-    // watch json files
-    gulp.watch(config.sourcePath + 'json/**', json);
-    // watch fonts
-    gulp.watch(config.sourcePath + 'font/**', font);
-    // watch svg
-    gulp.watch(config.sourcePath + 'svg/**', svg);
-    
+    watch();
+
     gulp.watch(config.publicPath + '**/*.{css,eot,ico,js,jpg,otf,png,svg,ttf,woff,woff2}', browserSyncReload);
-    gulp.watch('templates/**/*.{php,html,phtml}', browserSyncReload);
 }
 
 exports.scss = scss;
@@ -280,5 +279,5 @@ exports.browserSyncReload = browserSyncReload;
 // build task
 gulp.task('build', gulp.series(cleanUp, scss, js, scssLint, jsLint, jsRequire, json, img, font, svg, vue, vueJs));
 
-// default task if just called gulp
+// default task if you just call "gulp"
 gulp.task('default', gulp.parallel(watchAndReload, browserSyncInit));
