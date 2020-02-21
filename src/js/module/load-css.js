@@ -1,10 +1,10 @@
 'use strict';
 
-var loadCss = function(config) {
-    var head = document.getElementsByTagName('head')[0];
+const loadCss = function(config) {
+    let head = document.getElementsByTagName('head')[0];
 
     if (config.content) {
-        var style  = document.createElement('style');
+        let style = document.createElement('style');
         style.type = 'text/css';
 
         if (style.styleSheet) {
@@ -15,9 +15,9 @@ var loadCss = function(config) {
 
         head.appendChild(style);
     } else if (config.url) {
-        var link  = document.createElement('link');
+        let link = document.createElement('link');
         link.href = config.url;
-        link.rel  = 'stylesheet';
+        link.rel = 'stylesheet';
         link.type = 'text/css';
         head.appendChild(link);
     }

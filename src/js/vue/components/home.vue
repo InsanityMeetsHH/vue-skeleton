@@ -1,7 +1,11 @@
 <script>
-    export default {
-        
-    };
+	export default {
+		mounted: function() {
+			initCssuaMonitor();
+			initImageLazyLoad();
+			initSlider();
+		}
+	};
 </script>
 
 <template>
@@ -22,7 +26,7 @@
                 <div class="col-12 col-md-8 pb-5">
                     <div class="slider slider-brands" data-slick='{"responsive": [{"breakpoint": 575,"settings": {"slidesToShow": 2, "slidesToScroll": 1}},{"breakpoint": 991, "settings": {"slidesToShow": 3, "slidesToScroll": 1}}]}'>
                         <div class="slider-item">
-                            <!-- Vuejs Example -->
+                            <!-- Vue.js Icon -->
                             <font-awesome-layers class="fa-10x">
                                 <font-awesome-icon :icon="['far', 'square']"></font-awesome-icon>
                                 <font-awesome-icon :icon="['fab', 'vuejs']" class="fa-inverse" transform="shrink-6"></font-awesome-icon>
@@ -30,7 +34,7 @@
                             <a href="https://vuejs.org/" target="_blank" class="d-block label">{{ $t("vuejs") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Vuejs Example -->
+                            <!-- Bootstrap Icon -->
                             <font-awesome-layers class="fa-10x">
                                 <font-awesome-icon :icon="['far', 'square']"></font-awesome-icon>
                                 <font-awesome-icon :icon="['fas', 'bold']" class="fa-inverse" transform="shrink-6"></font-awesome-icon>
@@ -38,7 +42,7 @@
                             <a href="https://getbootstrap.com/" target="_blank" class="d-block label">{{ $t("bootstrap") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Vuejs Example -->
+                            <!-- Fontawesom Icon -->
                             <font-awesome-layers class="fa-10x">
                                 <font-awesome-icon :icon="['far', 'square']"></font-awesome-icon>
                                 <font-awesome-icon :icon="['fab', 'font-awesome-flag']" class="fa-inverse" transform="shrink-6"></font-awesome-icon>
@@ -46,7 +50,7 @@
                             <a href="https://fontawesome.com/" target="_blank" class="d-block label">{{ $t("fontawesome") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Vuejs Example -->
+                            <!-- Slick Carousel Icon -->
                             <font-awesome-layers class="fa-10x">
                                 <font-awesome-icon :icon="['fas', 'square']"></font-awesome-icon>
                                 <font-awesome-icon :icon="['fas', 'image']" class="fa-inverse" transform="shrink-7"></font-awesome-icon>
@@ -56,7 +60,7 @@
                             <a href="http://kenwheeler.github.io/slick/" target="_blank" class="d-block label">{{ $t("slick") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Vuejs Example -->
+                            <!-- Lazyload Image Icon -->
                             <font-awesome-layers class="fa-10x">
                                 <font-awesome-icon :icon="['fas', 'square']"></font-awesome-icon>
                                 <font-awesome-icon :icon="['fas', 'image']" class="fa-inverse" transform="shrink-4"></font-awesome-icon>
@@ -65,7 +69,7 @@
                             <a href="https://www.andreaverlicchi.eu/lazyload/" target="_blank" class="d-block label">{{ $t("lazyload") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Vuejs Example -->
+                            <!-- CSS User Agent Icon -->
                             <font-awesome-layers class="fa-10x">
                                 <font-awesome-icon :icon="['fas', 'square']"></font-awesome-icon>
                                 <font-awesome-icon :icon="['fas', 'user-secret']" class="fa-inverse" transform="shrink-4"></font-awesome-icon>
@@ -75,7 +79,7 @@
                             <a href="https://www.npmjs.com/package/cssuseragent" target="_blank" class="d-block label">{{ $t("cssua") }}</a>
                         </div>
                         <div class="slider-item">
-                            <!-- Vuejs Example -->
+                            <!-- Cookieconsent Icon -->
                             <font-awesome-layers class="fa-10x">
                                 <font-awesome-icon :icon="['fas', 'circle']"></font-awesome-icon>
                                 <font-awesome-icon :icon="['fas', 'circle']" class="fa-inverse" transform="shrink-15 up-4 left-4"></font-awesome-icon>

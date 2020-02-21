@@ -256,7 +256,7 @@ function watch() {
 function watchAndReload() {
     watch();
 
-    gulp.watch(config.publicPath + '**/*.{css,eot,ico,js,jpg,otf,png,svg,ttf,woff,woff2}', browserSyncReload);
+    gulp.watch(config.publicPath + '**/*.{css,eot,ico,js,json,jpg,otf,png,svg,ttf,woff,woff2}', browserSyncReload);
 }
 
 exports.scss = scss;

@@ -1,8 +1,8 @@
 'use strict';
 
-var require = {
-    baseUrl: '/',
-    paths: {
+require = {
+    'baseUrl': '/',
+    'paths': {
         'vue': 'js/require/vue.js?v=2.6.11',
         'vue-router': 'js/require/vue-router.js?v=3.1.5',
         'vue-i18n': 'js/require/vue-i18n.js?v=8.15.3',

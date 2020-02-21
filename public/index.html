@@ -2,18 +2,18 @@
 <html lang="en" class="no-js">
     <head>
         <script>
-            function setCookie(e,t,n){var o=new Date;o.setTime(o.getTime()+24*n*60*60*1e3);var i="expires="+o.toUTCString();document.cookie=e+"="+t+";"+i+";path=/"}function getCookie(e){for(var t=e+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(t))return i.substring(t.length,i.length)}return""}
-            var cookiesAllowed = getCookie('cookieconsent_status') !== 'deny';
-            var cookieLayer = {};
+            function setCookie(e,t,n){let o=new Date;o.setTime(o.getTime()+24*n*60*60*1e3);let i="expires="+o.toUTCString();document.cookie=e+"="+t+";"+i+";path=/"}function getCookie(e){for(var t=e+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(t))return i.substring(t.length,i.length)}return""}
+            let cookiesAllowed = getCookie('cookieconsent_status') !== 'deny';
+			let cookieLayer = {};
             
             // if cookies allowed - load tracking code
             if (cookiesAllowed) {
                 // Google Analaytics, Google Tag Manager, ...
-//                var s = document.createElement('script');
+//                let s = document.createElement('script');
 //                s.type = 'text/javascript';
 //                s.async = true;
 //                s.src = 'https://www.googletagmanager.com/gtag/js?id=UA-NUMBER-X';
-//                var h = document.getElementsByTagName('head')[0];
+//                let h = document.getElementsByTagName('head')[0];
 //                h.appendChild(s, h);
 //            
 //                window.dataLayer = window.dataLayer || [];
@@ -38,7 +38,7 @@
         <meta property="og:description" content=""/>
         <meta property="og:image" content=""/>
         <meta property="og:site_name" content="Vue Skeleton"/>
-        <meta property="og:url" content="http://127.0.0.1:8080/"/>
+        <meta property="og:url" content="http://127.0.0.1:3000/"/>
         <meta property="og:locale" content="en_US"/>
         <meta property="article:publisher" content=""/>
         <meta name="twitter:card" content="summary_large_image">
@@ -47,8 +47,8 @@
         <meta name="twitter:description" content="">
         <meta name="twitter:image" content="">
         <link rel="me" href="https://twitter.com/InsanityMeetsHH">
-        <link rel="canonical" href="http://127.0.0.1:8080/"/>
-        <link rel="alternate" hreflang="x-default" href="http://127.0.0.1:8080/"/>
+        <link rel="canonical" href="http://127.0.0.1:3000/"/>
+        <link rel="alternate" hreflang="x-default" href="http://127.0.0.1:3000/"/>
         <!--<link rel="alternate" type="application/rss+xml" title="" href=""/>-->
         <link rel="apple-touch-icon" href="img/favicons/favicon-180x180.png" sizes="180x180">
         <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">

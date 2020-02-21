@@ -16,6 +16,9 @@
                         <li class="nav-item">
                             <router-link class="nav-link" :to="{ name: 'about' }">{{ $t("nav-about") }}</router-link>
                         </li>
+                        <li class="nav-item">
+                            <router-link class="nav-link" to="/foobar">{{ $t("nav-error") }}</router-link>
+                        </li>
                     </ul>
                 </div>
             </div>
