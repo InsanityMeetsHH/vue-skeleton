@@ -1,11 +1,11 @@
 <script>
-	export default {
-		mounted: function() {
-			initCssuaMonitor();
-			initImageLazyLoad();
-			initSlider();
-		}
-	};
+    export default {
+        mounted: function() {
+            initCssuaMonitor();
+            initImageLazyLoad();
+            initSlider();
+        }
+    };
 </script>
 
 <template>

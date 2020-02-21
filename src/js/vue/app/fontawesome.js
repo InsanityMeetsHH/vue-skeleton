@@ -1,27 +1,27 @@
 import Vue from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-	faCss3 as fabCss3,
-	faFontAwesomeFlag as fabFontAwesomeFlag,
-	faHtml5 as fabHtml5,
-	faVuejs as fabVuejs,
+    faCss3 as fabCss3,
+    faFontAwesomeFlag as fabFontAwesomeFlag,
+    faHtml5 as fabHtml5,
+    faVuejs as fabVuejs,
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
-	faSadCry as farSadCry,
-	faSquare as farSquare
+    faSadCry as farSadCry,
+    faSquare as farSquare
 } from '@fortawesome/free-regular-svg-icons'
 
 import {
-	faBold as fasBold,
-	faChevronLeft as fasChevronLeft,
-	faChevronRight as fasChevronRight,
-	faCircle as fasCircle,
-	faGlobe as fasGlobe,
-	faImage as fasImage,
-	faSquare as fasSquare,
-	faSync as fasSync,
-	faUserSecret as fasUserSecret
+    faBold as fasBold,
+    faChevronLeft as fasChevronLeft,
+    faChevronRight as fasChevronRight,
+    faCircle as fasCircle,
+    faGlobe as fasGlobe,
+    faImage as fasImage,
+    faSquare as fasSquare,
+    faSync as fasSync,
+    faUserSecret as fasUserSecret
 } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'

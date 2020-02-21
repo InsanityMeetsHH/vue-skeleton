@@ -6,11 +6,11 @@ Vue.use(VueI18n);
 
 const messages = {};
 const i18n = new VueI18n({
-	messages,
-	locale: LangSwitch.data().currentLocale,
-	fallbackLocale: LangSwitch.data().fallbackLocale,
-	silentFallbackWarn: true,
-	silentTranslationWarn: true
+    messages,
+    locale: LangSwitch.data().currentLocale,
+    fallbackLocale: LangSwitch.data().fallbackLocale,
+    silentFallbackWarn: true,
+    silentTranslationWarn: true
 });
 
 export default i18n
