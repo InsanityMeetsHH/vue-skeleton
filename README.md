@@ -19,7 +19,7 @@
 * [Node.js](http://nodejs.org/en/download/)
 * [npm](http://www.npmjs.com/get-npm) `$ npm i npm@latest -g`
 * [gulp-cli](https://www.npmjs.com/package/gulp-cli) `$ npm i gulp-cli@latest -g`
-* PHP => 5.3
+* PHP >= 5.3
 * [Docker](https://www.docker.com/) ([for installation with Docker](https://github.com/InsanityMeetsHH/vue-skeleton#installation-with-docker))
 
 ## Installation (Recommended)
@@ -29,7 +29,6 @@ $ cd [project-name]
 $ rm -rf .git
 $ npm i
 $ gulp build
-$ gulp browserSyncInit (in production)
 $ gulp (in development)
 ```
 Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js), if you want to use Docker as server.

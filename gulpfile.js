@@ -7,7 +7,7 @@ const minifyCss   = require('gulp-clean-css');
 const concat      = require('gulp-concat');
 const eslint      = require('gulp-eslint');
 const gulpif      = require('gulp-if');
-const imagemin    = require('gulp-imagemin');
+const minifyImg   = require('gulp-imagemin');
 const minifyJson  = require('gulp-jsonminify');
 const rename      = require('gulp-rename');
 const sass        = require('gulp-sass');
@@ -125,16 +125,10 @@ function json() {
 // compress images
 function img() {
     return gulp.src(config.sourcePath + 'img/**/*.{png,gif,jpg,jpeg,ico,xml,json,svg}')
-        .pipe(imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imagemin.mozjpeg({progressive: true}),
-            imagemin.optipng({optimizationLevel: 5}),
-            imagemin.svgo({
-                plugins: [
-                    {removeViewBox: true},
-                    {cleanupIDs: false}
-                ]
-            })
+        .pipe(minifyImg([
+            minifyImg.gifsicle({interlaced: true}),
+            minifyImg.mozjpeg({progressive: true}),
+            minifyImg.optipng({optimizationLevel: 5})
         ]))
 //        .pipe(gulp.dest(config.systemPath + 'img/'))
         .pipe(gulp.dest(config.publicPath + 'img/'));
@@ -158,8 +152,8 @@ function svg() {
 //            'node_modules/@fortawesome/fontawesome-free/sprites/**',
             config.sourcePath + 'svg/**/*.svg'
         ])
-        .pipe(imagemin([
-            imagemin.svgo({
+        .pipe(minifyImg([
+            minifyImg.svgo({
                 plugins: [
                     {removeViewBox: true},
                     {cleanupIDs: false}
