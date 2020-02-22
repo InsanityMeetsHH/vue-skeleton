@@ -179,11 +179,11 @@ function vueJs() {
 
 // transpile vue files
 function vue() {
-    return gulp.src(config.sourcePath + 'js/vue/components/**/*.vue')
+    return gulp.src(config.sourcePath + 'js/vue/**/*.vue')
         .pipe(vueSfc({ debug: false, loadCssMethod: 'loadCss' }))
         .pipe(babel({ plugins: ['@babel/plugin-transform-modules-amd'] }))
         .pipe(rename({ extname: '.js' }))
-        .pipe(gulp.dest(config.publicPath + 'js/vue/components/'));
+        .pipe(gulp.dest(config.publicPath + 'js/vue/'));
 }
 
 // clean up folders

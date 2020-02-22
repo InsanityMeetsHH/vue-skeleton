@@ -1,16 +1,16 @@
 import Vue from 'vue';
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faCss3 as fabCss3,
     faFontAwesomeFlag as fabFontAwesomeFlag,
     faHtml5 as fabHtml5,
     faVuejs as fabVuejs,
-} from '@fortawesome/free-brands-svg-icons'
+} from '@fortawesome/free-brands-svg-icons';
 
 import {
     faSadCry as farSadCry,
     faSquare as farSquare
-} from '@fortawesome/free-regular-svg-icons'
+} from '@fortawesome/free-regular-svg-icons';
 
 import {
     faBold as fasBold,
@@ -22,9 +22,9 @@ import {
     faSquare as fasSquare,
     faSync as fasSync,
     faUserSecret as fasUserSecret
-} from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/free-solid-svg-icons';
 
-import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
 
 library.add(fabCss3, fabFontAwesomeFlag, fabHtml5, fabVuejs);
 library.add(farSadCry, farSquare);
@@ -33,4 +33,4 @@ library.add(fasBold, fasChevronLeft, fasChevronRight, fasCircle, fasGlobe, fasIm
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('font-awesome-layers', FontAwesomeLayers);
 
-export default library
+export default library;

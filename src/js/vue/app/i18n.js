@@ -1,4 +1,4 @@
-import LangSwitch from "../components/langswitch";
+import LangSwitch from "../components/partials/langswitch";
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
@@ -13,4 +13,4 @@ const i18n = new VueI18n({
     silentTranslationWarn: true
 });
 
-export default i18n
+export default i18n;

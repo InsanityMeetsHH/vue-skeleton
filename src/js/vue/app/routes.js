@@ -1,11 +1,12 @@
-import Home from '../components/home';
-import About from '../components/about';
-import ErrorPage from '../components/error-page';
+import Home from '../components/pages/home';
+import About from '../components/pages/about';
+import ErrorPage from '../components/pages/error-page';
 
 const routes = [
     {
         name: 'index',
         path: '',
+//        meta: { layout: 'empty' },
         component: Home
     },
     {
@@ -19,4 +20,4 @@ const routes = [
     }
 ];
 
-export default routes
+export default routes;
