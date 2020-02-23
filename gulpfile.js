@@ -6,7 +6,7 @@ const babel       = require('gulp-babel');
 const minifyCss   = require('gulp-clean-css');
 const concat      = require('gulp-concat');
 const eslint      = require('gulp-eslint');
-const gulpif      = require('gulp-if');
+const gulpIf      = require('gulp-if');
 const minifyImg   = require('gulp-imagemin');
 const minifyJson  = require('gulp-jsonminify');
 const rename      = require('gulp-rename');
@@ -28,7 +28,7 @@ function scss() {
             overrideBrowserslist: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(gulpif(isEnv(['test', 'prod'], config.env), minifyCss({compatibility: 'ie8'})))
+        .pipe(gulpIf(isEnv(['test', 'prod'], config.env), minifyCss({compatibility: 'ie8'})))
         .pipe(sourcemaps.write('./'))
 //        .pipe(gulp.dest(config.systemPath + 'css/'))
         .pipe(gulp.dest(config.publicPath + 'css/'));
@@ -61,7 +61,7 @@ function js() {
         ])
         .pipe(sourcemaps.init())
         .pipe(concat('scripts.js'))
-        .pipe(gulpif(isEnv(['test', 'prod'], config.env), uglify()))
+        .pipe(gulpIf(isEnv(['test', 'prod'], config.env), uglify()))
         .pipe(sourcemaps.write('./'))
 //        .pipe(gulp.dest(config.systemPath + 'js/'))
         .pipe(gulp.dest(config.publicPath + 'js/'));
