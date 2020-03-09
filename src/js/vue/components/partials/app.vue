@@ -1,15 +1,19 @@
 <script>
     const layout = 'default';
-    
+
     export default {
         computed: {
             layout() {
-                return 'v-' + (this.$route.meta.layout || layout) + '-layout';
+                return 'l-' + (this.$route.meta.layout || layout);
             }
+        },
+        mounted: function() {
+            jQuery('html').removeClass('no-js');
+            jQuery('[data-toggle="tooltip"]').tooltip();
         }
     };
 </script>
 
 <template>
-    <component v-bind:is="layout"></component>
+    <component :is="layout" />
 </template>

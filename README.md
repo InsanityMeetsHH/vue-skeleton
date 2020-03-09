@@ -34,22 +34,24 @@ $ gulp (in development)
 Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js), if you want to use Docker as server.
 
 ## Project Commands
-|                     | Description                                                                                                     |
-|---------------------|-----------------------------------------------------------------------------------------------------------------|
-| gulp                | watch files and start [BrowserSync](https://www.npmjs.com/package/browser-sync)                                 |
-| gulp build          | executes following tasks: cleanUp, scss, js, scssLint, jsLint, img, font, svg                                   |
-| gulp cleanUp        | clean up public folder                                                                                          |
-| gulp font           | copy font                                                                                                       |
-| gulp img            | compress and copy img                                                                                           |
-| gulp js             | uglify, minify and concat js                                                                                    |
-| gulp jsLint         | checks js follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/js-lint.json)        |
-| gulp jsRequire      | copy, uglify and rename files for requirejs                                                                     |
-| gulp scss           | compile/minify/concat scss                                                                                      |
-| gulp scssLint       | checks scss follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/scss-lint.json)    |
-| gulp svg            | compress and copy svg                                                                                           |
-| gulp vue            | transpile vue file                                                                                              |
-| gulp vueJs          | transpile vue js file                                                                                           |
-| gulp watch          | watch scss, js, img, font and svg files                                                                         |
+|                     | Description                                                                                                          |
+|---------------------|----------------------------------------------------------------------------------------------------------------------|
+| gulp                | watch files and start [BrowserSync](https://www.npmjs.com/package/browser-sync)                                      |
+| gulp build          | executes following tasks: cleanUp, scss, scssLint, js, jsLint, jsRequire, json, img, font, svg, vue, vueJs, vueLint  |
+| gulp cleanUp        | clean up public folder                                                                                               |
+| gulp font           | copy font files                                                                                                      |
+| gulp img            | copy and compress images                                                                                             |
+| gulp js             | uglify, minify and concat js files                                                                                   |
+| gulp jsLint         | checks js follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/js-lint.json)     |
+| gulp jsRequire      | copy, uglify and rename files for requirejs                                                                          |
+| gulp json           | copy and minify json files                                                                                           |
+| gulp scss           | compile, minify and concat scss files                                                                                |
+| gulp scssLint       | checks scss follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/scss-lint.json) |
+| gulp svg            | copy and compress svg files                                                                                          |
+| gulp vue            | transpile vue files                                                                                                  |
+| gulp vueJs          | transpile vue js files                                                                                               |
+| gulp vueLint        | checks vue follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/vue-lint.json)   |
+| gulp watch          | watch scss, js, json, vue, img, font and svg files                                                                   |
 
 ## Installation with [Docker](https://www.docker.com/)
 * Get project via `$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git` or [zip download](https://github.com/InsanityMeetsHH/vue-skeleton/archive/master.zip)
@@ -63,5 +65,6 @@ Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeet
 
 ## Links
 * [ESLint Rules](https://eslint.org/docs/rules/)
+* [ESLint Vue Rules](https://vuejs.github.io/eslint-plugin-vue/rules/)
 * [Sass Lint Rules](https://github.com/sasstools/sass-lint/tree/develop/docs/rules)
 * [Vue SFC](https://github.com/nfplee/gulp-vue-single-file-component)

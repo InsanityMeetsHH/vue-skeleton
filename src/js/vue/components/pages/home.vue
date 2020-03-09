@@ -24,6 +24,7 @@
                     <span style="font-size: 1.75rem;">{{ $t("included") }}</span>
                 </div>
                 <div class="col-12 col-md-8 pb-5">
+                    <!-- eslint-disable-next-line vue/html-quotes -->
                     <div class="slider slider-brands" data-slick='{"responsive": [{"breakpoint": 575,"settings": {"slidesToShow": 2, "slidesToScroll": 1}},{"breakpoint": 991, "settings": {"slidesToShow": 3, "slidesToScroll": 1}}]}'>
                         <div class="slider-item">
                             <!-- Vue.js Icon -->
@@ -97,11 +98,15 @@
                 <div class="col-12 pb-5">
                     <div class="row">
                         <div class="col-12 col-md-6 pb-5 pb-md-0">
-                            <h3 class="pb-2">{{ $t("lazyload-example") }}</h3>
-                            <img src="img/slick/ajax-loader.gif" data-src="https://via.placeholder.com/266x140/2E97BF/212121?text=LazyLoad%20Image" alt="image" class="img-fluid"/>
+                            <h3 class="pb-2">
+                                {{ $t("lazyload-example") }}
+                            </h3>
+                            <img src="img/slick/ajax-loader.gif" data-src="https://via.placeholder.com/266x140/2E97BF/212121?text=LazyLoad%20Image" alt="image" class="img-fluid">
                         </div>
                         <div class="col-12 col-md-6">
-                            <h3 class="pb-2">{{ $t("cssua-monitor") }}</h3>
+                            <h3 class="pb-2">
+                                {{ $t("cssua-monitor") }}
+                            </h3>
                             <div class="cssua-monitor"></div>
                         </div>
                     </div>

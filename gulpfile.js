@@ -119,6 +119,7 @@ function json() {
             config.sourcePath + 'json/**/*.json'
         ])
         .pipe(minifyJson())
+//        .pipe(gulp.dest(config.systemPath + 'json/'))
         .pipe(gulp.dest(config.publicPath + 'json/'));
 }
 
@@ -164,20 +165,30 @@ function svg() {
         .pipe(gulp.dest(config.publicPath + 'svg/'));
 }
 
-// transpile vue js files
-function vueJs() {
-    return gulp.src(config.sourcePath + 'js/vue/**/*.js')
-        .pipe(babel({ plugins: ['@babel/plugin-transform-modules-amd'] }))
-        .pipe(gulp.dest(config.publicPath + 'js/vue/'));
-}
-
 // transpile vue files
 function vue() {
     return gulp.src(config.sourcePath + 'js/vue/**/*.vue')
         .pipe(vueSfc({ debug: false, loadCssMethod: 'loadCss' }))
         .pipe(babel({ plugins: ['@babel/plugin-transform-modules-amd'] }))
         .pipe(rename({ extname: '.js' }))
+//        .pipe(gulp.dest(config.systemPath + 'js/vue/'))
         .pipe(gulp.dest(config.publicPath + 'js/vue/'));
+}
+
+// transpile vue js files
+function vueJs() {
+    return gulp.src(config.sourcePath + 'js/vue/**/*.js')
+        .pipe(babel({ plugins: ['@babel/plugin-transform-modules-amd'] }))
+//        .pipe(gulp.dest(config.systemPath + 'js/vue/'))
+        .pipe(gulp.dest(config.publicPath + 'js/vue/'));
+}
+
+// lint vue files
+function vueLint() {
+    return gulp.src(config.sourcePath + 'js/vue/**/*.vue')
+        .pipe(eslint(require('./src/app/vue-lint.json')))
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 }
 
 // clean up folders
@@ -235,7 +246,7 @@ function watch() {
         config.sourcePath + 'js/scripts.js'
     ], gulp.series(js, jsLint));
     // watch vue files
-    gulp.watch(config.sourcePath + 'js/vue/**', gulp.series(vue, vueJs));
+    gulp.watch(config.sourcePath + 'js/vue/**', gulp.series(vue, vueJs, vueLint));
     // watch images
     gulp.watch(config.sourcePath + 'img/**', img);
     // watch json files
@@ -262,8 +273,9 @@ exports.json = json;
 exports.img = img;
 exports.font = font;
 exports.svg = svg;
-exports.vueJs = vueJs;
 exports.vue = vue;
+exports.vueJs = vueJs;
+exports.vueLint = vueLint;
 exports.cleanUp = cleanUp;
 exports.watch = watch;
 exports.watchAndReload = watchAndReload;
@@ -271,7 +283,7 @@ exports.browserSyncInit = browserSyncInit;
 exports.browserSyncReload = browserSyncReload;
 
 // build task
-gulp.task('build', gulp.series(cleanUp, scss, js, scssLint, jsLint, jsRequire, json, img, font, svg, vue, vueJs));
+gulp.task('build', gulp.series(cleanUp, scss, scssLint, js, jsLint, jsRequire, json, img, font, svg, vue, vueJs, vueLint));
 
 // default task if you just call "gulp"
 gulp.task('default', gulp.parallel(watchAndReload, browserSyncInit));

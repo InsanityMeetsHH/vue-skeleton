@@ -7,17 +7,17 @@
                 languages: ['en', 'de']
             };
         },
+        watch: {
+            currentLocale(newLocale) {
+                localStorage.currentLocale = newLocale;
+            }
+        },
         mounted: function() {
             if (localStorage.currentLocale) {
                 this.currentLocale = localStorage.currentLocale;
             }
 
             this.changeLang(this.currentLocale);
-        },
-        watch: {
-            currentLocale(newLocale) {
-                localStorage.currentLocale = newLocale;
-            }
         },
         methods: {
             changeLang: function(lang) {
@@ -45,9 +45,11 @@
                         policy: $this.$t('cl-policy'),
                         href: $this.$t('cl-href')
                     };
-                    
-                    jQuery('.cc-window, .cc-revoke').remove();
-                    initCookieConsent();
+
+                    setTimeout(function() {
+                        initCookieConsent();
+                        initSlider();
+                    }, 100);
                 }).fail(function() {
                     // do something
                 }).always(function() {
@@ -61,10 +63,10 @@
 <template>
     <div class="btn-group dropup">
         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <font-awesome-icon :icon="['fas', 'globe']"></font-awesome-icon>
+            <font-awesome-icon :icon="['fas', 'globe']" />
         </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="#" onclick="javascript:return false;" v-for="lang in languages" :key="lang" @click="changeLang(lang)">{{ $t("lang-" + lang) }}</a>
+            <a v-for="lang in languages" :key="lang" class="dropdown-item" onclick="javascript:return false;" href="#" @click="changeLang(lang)">{{ $t("lang-" + lang) }}</a>
         </div>
     </div>
 </template>

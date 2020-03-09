@@ -9,6 +9,7 @@
  */
 function initSlider() {
     (function($) {
+        $('.slider.slick-initialized').slick('unslick');
         $('.slider:not(.slick-initialized)').slick({
             arrows: true,
             autoplay: true,

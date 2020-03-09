@@ -6,8 +6,8 @@ import EmptyLayout from './components/layouts/empty';
 import App from './components/partials/app';
 import Vue from 'vue';
 
-Vue.component('v-default-layout', DefaultLayout);
-Vue.component('v-empty-layout', EmptyLayout);
+Vue.component('l-default', DefaultLayout);
+Vue.component('l-empty', EmptyLayout);
 
 Vue.config.productionTip = false;
 
