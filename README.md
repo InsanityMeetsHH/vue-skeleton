@@ -24,8 +24,8 @@
 
 ## Installation (Recommended)
 ```bash
-$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git [project-name]
-$ cd [project-name]
+$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git [app-name]
+$ cd [app-name]
 $ rm -rf .git
 $ npm i
 $ gulp build

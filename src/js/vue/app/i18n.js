@@ -1,12 +1,13 @@
 import LangSwitch from "../components/partials/langswitch";
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import { languages } from './i18n-languages';
+const messages = Object.assign(languages);
 
 Vue.use(VueI18n);
 
-const messages = {};
 const i18n = new VueI18n({
-    messages,
+    messages: messages,
     locale: LangSwitch.data().currentLocale,
     fallbackLocale: LangSwitch.data().fallbackLocale,
     silentFallbackWarn: true,

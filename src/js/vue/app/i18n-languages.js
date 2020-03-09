@@ -1,4 +1,62 @@
-{
+const en = {
+    "bootstrap": "Bootstrap 4",
+    "cookieconsent": "Cookieconsent 3",
+    "cookie-policy-title": "Cookie Policy",
+    "cssua": "CSS User Agent",
+    "cssua-monitor": "CSS User Agent Monitor",
+    "expires": "Expires",
+    "fontawesome": "Font Awesome 5",
+    "included": "included",
+    "lazyload": "LazyLoad Image",
+    "lazyload-example": "LazyLoad Example",
+    "name": "Name",
+    "page-not-found": "Page not found.",
+    "provider": "Provider",
+    "purpose": "Purpose",
+    "slick": "Slick Carousel",
+    "type": "Type {0}",
+    "vuejs": "Vue.js 2",
+
+    "lang-de": "Deutsch",
+    "lang-en": "English",
+
+    "nav-about": "About us",
+    "nav-error": "Error page",
+    "nav-home": "Home",
+
+    "cl-allow": "Allow cookies",
+    "cl-allow-link": "Allow cookies",
+    "cl-deny": "Decline",
+    "cl-dismiss": "Got it!",
+    "cl-dismiss-link": "Dismiss cookie message",
+    "cl-header": "Cookies used on the website!",
+    "cl-href": "#cookie-policy",
+    "cl-link": "Learn more",
+    "cl-message": "This website uses cookies to ensure you get the best experience on our website.",
+    "cl-message-link": "Learn more about cookies",
+    "cl-policy": "Cookie Policy",
+
+    "cpm-cc-status": "Saves the consent status of the user for cookies on the current domain.",
+    "cpm-sdi": "Show detailed information",
+    "cpm-type1": "Type 1 = Absolutely required cookie",
+    "cpm-type2": "Type 2 = Function cookie",
+    "cpm-type3": "Type 3 = Service cookie",
+    "cpm-type4": "Type 4 = Third party cookie",
+    
+    "dp": ".",
+    "ts": ",",
+    "date": "Y-m-d",
+    "time": "g:ia",
+    "datetime": "Y-m-d g:ia",
+    "timezone": "America/New_York",
+    
+    "month": "{0} month",
+    "months": "{0} months",
+    "year": "{0} year",
+    "years": "{0} years"
+};
+
+const de = {
     "bootstrap": "Bootstrap 4",
     "cookieconsent": "Cookieconsent 3",
     "cookie-policy-title": "Cookie-Richtlinie",
@@ -54,4 +112,10 @@
     "months": "{0} Monate",
     "year": "{0} Jahr",
     "years": "{0} Jahre"
-}
+};
+
+export const languages = {
+  en: en,
+  de: de
+};
+
