@@ -1,5 +1,5 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 import i18n from './i18n';
 import routes from './routes';
 
@@ -10,7 +10,7 @@ const router = new VueRouter({
     // base: '/',
     // mode: 'history',
     routes: routes,
-    translateMeta: function (metaString) {
+    translateMeta: function(metaString) {
         let title = metaString;
         let titleMatch = metaString.match(/i18n\.([a-z-]+)/g);
 
@@ -38,7 +38,7 @@ router.beforeEach((to, from, next) => {
     const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
 
     // If a route with a title was found, set the document (page) title to that value.
-    if(nearestWithTitle) {
+    if (nearestWithTitle) {
         document.title = router.options.translateMeta(nearestWithTitle.meta.title);
     }
 
@@ -46,7 +46,7 @@ router.beforeEach((to, from, next) => {
     Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map(el => el.parentNode.removeChild(el));
 
     // Skip rendering meta tags if there are none.
-    if(!nearestWithMeta) {
+    if (!nearestWithMeta) {
         return next();
     }
 
@@ -55,16 +55,14 @@ router.beforeEach((to, from, next) => {
         const tag = document.createElement('meta');
 
         Object.keys(tagDef).forEach(key => {
-          tag.setAttribute(key, router.options.translateMeta(tagDef[key]));
+            tag.setAttribute(key, router.options.translateMeta(tagDef[key]));
         });
 
         // We use this to track which meta tags we create, so we don't interfere with other ones.
         tag.setAttribute('data-vue-router-controlled', '');
 
         return tag;
-    })
-    // Add the meta tags to the document head.
-    .forEach(tag => document.head.appendChild(tag));
+    }).forEach(tag => document.head.appendChild(tag));
 
     next();
 });

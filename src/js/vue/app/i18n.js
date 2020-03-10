@@ -1,8 +1,8 @@
-import LangSwitch from "../components/partials/langswitch";
+import LangSwitch from '../components/partials/langswitch';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-import { languages } from './i18n-languages';
-const messages = Object.assign(languages);
+import { locales } from './i18n-locales';
+const messages = Object.assign(locales);
 
 Vue.use(VueI18n);
 

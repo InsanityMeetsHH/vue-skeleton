@@ -18,6 +18,7 @@ const vueSfc      = require('gulp-vue-single-file-component');
 
 const config      = require('./src/app/gulpfile.json');
 const isEnv       = require('./src/app/is-env');
+const lint        = require('./src/app/lint');
 
 // processing scss to css and minify result
 function scss() {
@@ -36,12 +37,7 @@ function scss() {
 
 // lint scss files
 function scssLint() {
-    return gulp.src([
-            config.sourcePath + 'scss/**/*.scss'
-        ])
-        .pipe(sassLint(require('./src/app/scss-lint.json')))
-        .pipe(sassLint.format())
-        .pipe(sassLint.failOnError());
+    return lint(gulp, sassLint, [config.sourcePath + 'scss/**/*.scss'], 'scss');
 }
 
 // concatenate and uglify js files
@@ -69,13 +65,7 @@ function js() {
 
 // lint js files
 function jsLint() {
-    return gulp.src([
-            config.sourcePath + 'js/{lib,module,plugin}/*.js',
-            config.sourcePath + 'js/scripts.js'
-        ])
-        .pipe(eslint(require('./src/app/js-lint.json')))
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
+    return lint(gulp, eslint, [config.sourcePath + 'js/{lib,module,plugin}/*.js', config.sourcePath + 'js/scripts.js'], 'js');
 }
 
 // uglify required js files
@@ -181,12 +171,14 @@ function vueJs() {
         .pipe(gulp.dest(config.publicPath + 'js/vue/'));
 }
 
+// lint vue js files
+function vueJsLint() {
+    return lint(gulp, eslint, [config.sourcePath + 'js/vue/**/*.js'], 'import');
+}
+
 // lint vue files
 function vueLint() {
-    return gulp.src(config.sourcePath + 'js/vue/**/*.vue')
-        .pipe(eslint(require('./src/app/vue-lint.json')))
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
+    return lint(gulp, eslint, [config.sourcePath + 'js/vue/**/*.vue'], 'vue');
 }
 
 // clean up folders
@@ -244,7 +236,7 @@ function watch() {
         config.sourcePath + 'js/scripts.js'
     ], gulp.series(js, jsLint));
     // watch vue files
-    gulp.watch(config.sourcePath + 'js/vue/**', gulp.series(vue, vueJs, vueLint));
+    gulp.watch(config.sourcePath + 'js/vue/**', gulp.series(vue, vueJs, vueJsLint, vueLint));
     // watch images
     gulp.watch(config.sourcePath + 'img/**', img);
     // watch json files
@@ -273,6 +265,7 @@ exports.font = font;
 exports.svg = svg;
 exports.vue = vue;
 exports.vueJs = vueJs;
+exports.vueJsLint = vueJsLint;
 exports.vueLint = vueLint;
 exports.cleanUp = cleanUp;
 exports.watch = watch;
@@ -281,7 +274,7 @@ exports.browserSyncInit = browserSyncInit;
 exports.browserSyncReload = browserSyncReload;
 
 // build task
-gulp.task('build', gulp.series(cleanUp, scss, scssLint, js, jsLint, jsRequire, json, img, font, svg, vue, vueJs, vueLint));
+gulp.task('build', gulp.series(cleanUp, scss, scssLint, js, jsLint, jsRequire, json, img, font, svg, vue, vueJs, vueJsLint, vueLint));
 
 // default task if you just call "gulp"
 gulp.task('default', gulp.parallel(watchAndReload, browserSyncInit));

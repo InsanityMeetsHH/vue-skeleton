@@ -1,6 +1,6 @@
 'use strict';
 
-require = {
+require = { // eslint-disable-line no-global-assign
     'baseUrl': '/',
     'paths': {
         'vue': 'js/require/vue.js?v=2.6.11',

@@ -4,7 +4,7 @@ import {
     faCss3 as fabCss3,
     faFontAwesomeFlag as fabFontAwesomeFlag,
     faHtml5 as fabHtml5,
-    faVuejs as fabVuejs,
+    faVuejs as fabVuejs
 } from '@fortawesome/free-brands-svg-icons';
 
 import {
