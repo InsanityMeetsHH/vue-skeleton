@@ -1,7 +1,7 @@
-import routes from './routes';
 import Vue from "vue";
 import VueRouter from "vue-router";
 import i18n from './i18n';
+import routes from './routes';
 
 Vue.use(VueRouter);
 i18n.locale = localStorage.currentLocale ? localStorage.currentLocale : i18n.currentLocale;
@@ -9,7 +9,20 @@ i18n.locale = localStorage.currentLocale ? localStorage.currentLocale : i18n.cur
 const router = new VueRouter({
     // base: '/',
     // mode: 'history',
-    routes: routes
+    routes: routes,
+    translateMeta: function (metaString) {
+        let title = metaString;
+        let titleMatch = metaString.match(/i18n\.([a-z-]+)/g);
+
+        // If titleMatch is not empty
+        if (titleMatch !== null) {
+            for (let i = 0; i < titleMatch.length; i++) {
+                title = metaString.replace(titleMatch[i], i18n.t(titleMatch[i].replace('i18n.', '')));
+            }
+        }
+
+        return title;
+    }
 });
 
 // This callback runs before every route change, including on page load.
@@ -26,17 +39,7 @@ router.beforeEach((to, from, next) => {
 
     // If a route with a title was found, set the document (page) title to that value.
     if(nearestWithTitle) {
-        title = nearestWithTitle.meta.title;
-        let titleMatch = nearestWithTitle.meta.title.match(/i18n\.([a-z-]+)/g);
-        
-        // If titleMatch is not empty
-        if (titleMatch !== null) {
-            for (let i = 0; i < titleMatch.length; i++) {
-                title = nearestWithTitle.meta.title.replace(titleMatch[i], i18n.t(titleMatch[i].replace('i18n.', '')));
-            }
-        }
-        
-        document.title = title;
+        document.title = router.options.translateMeta(nearestWithTitle.meta.title);
     }
 
     // Remove any stale meta tags from the document using the key attribute we set below.
@@ -52,7 +55,7 @@ router.beforeEach((to, from, next) => {
         const tag = document.createElement('meta');
 
         Object.keys(tagDef).forEach(key => {
-          tag.setAttribute(key, tagDef[key]);
+          tag.setAttribute(key, router.options.translateMeta(tagDef[key]));
         });
 
         // We use this to track which meta tags we create, so we don't interfere with other ones.

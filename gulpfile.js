@@ -83,11 +83,9 @@ function jsRequire() {
     let returnValue;
     const modules = {
         'require': 'node_modules/requirejs/require.js',
-        // 'vue': 'node_modules/vue/dist/vue.js', // for DEV
-        'vue': 'node_modules/vue/dist/vue.min.js', // for PROD
-        // 'fontawesome-free-all': 'node_modules/@fortawesome/fontawesome-free/js/all.js',
-        // 'vue-router': 'node_modules/vue-router/dist/vue-router.js', // for DEV
-        'vue-router': 'node_modules/vue-router/dist/vue-router.min.js', // for PROD
+        'vue': 'node_modules/vue/dist/vue.min.js',
+//        'fontawesome-free-all': 'node_modules/@fortawesome/fontawesome-free/js/all.js',
+        'vue-router': 'node_modules/vue-router/dist/vue-router.min.js',
         'vue-i18n': 'node_modules/vue-i18n/dist/vue-i18n.js',
         'fontawesome-svg-core': 'node_modules/@fortawesome/fontawesome-svg-core/index.js',
         'free-brands-svg-icons': 'node_modules/@fortawesome/free-brands-svg-icons/index.js',

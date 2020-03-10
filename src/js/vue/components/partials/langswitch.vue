@@ -37,7 +37,13 @@
                     policy: this.$t('cl-policy'),
                     href: this.$t('cl-href')
                 };
-                initCookieConsent();
+
+                // workaround: initSlider() is called, but its not right translated
+                // if you slide to the left, after language has changed
+                setTimeout(function() {
+                    initCookieConsent();
+                    initSlider();
+                }, 100);
             }
         }
     };
