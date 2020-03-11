@@ -10,18 +10,37 @@ const router = new VueRouter({
     // base: '/',
     // mode: 'history',
     routes: routes,
-    translateMeta: function(metaString) {
-        let title = metaString;
-        let titleMatch = metaString.match(/i18n\.([a-z-]+)/g);
+    /**
+     * Returns translated meta string
+     *
+     * Examples:
+     * i18n.nav-home (locale key)
+     * i18n.nav-home(lorem ipsum,foobar,1234) (locale key with params)
+     *
+     * @param meta string
+     * @returns string
+     */
+    translateMeta: function(meta) {
+        let metaRegEx = /i18n\.([a-z-]+)(\([0-9a-z, äüöß]+\))?/gi;
+        let paramsRegEx = /\([0-9a-z, äüöß]+\)/gi;
+        let cleanRegEx = /i18n\.|\([0-9a-z, äüöß]+\)/gi;
+        let metaMatches = meta.match(metaRegEx);
 
-        // If titleMatch is not empty
-        if (titleMatch !== null) {
-            for (let i = 0; i < titleMatch.length; i++) {
-                title = metaString.replace(titleMatch[i], i18n.t(titleMatch[i].replace('i18n.', '')));
+        // If metaMatches is not empty
+        if (metaMatches !== null) {
+            for (let i = 0; i < metaMatches.length; i++) {
+                let params = []; // eslint-disable-line array-bracket-newline
+
+                // if params exists
+                if (paramsRegEx.test(metaMatches[i])) {
+                    params = metaMatches[i].match(paramsRegEx)[0].replace(/\(|\)/g, '').split(',');
+                }
+
+                meta = meta.replace(metaMatches[i], i18n.t(metaMatches[i].replace(cleanRegEx, ''), params));
             }
         }
 
-        return title;
+        return meta;
     }
 });
 

@@ -54,6 +54,10 @@ Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeet
 | gulp vueLint        | checks vue follows [lint rules](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/vue-lint.json)         |
 | gulp watch          | watch scss, js, json, vue, img, font and svg files                                                                         |
 
+## Localization
+- [`i18n-locales.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/app/i18n-locales.js)
+- [`langswitch.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/components/partials/langswitch.vue)
+
 ## Installation with [Docker](https://www.docker.com/)
 * Get project via `$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git` or [zip download](https://github.com/InsanityMeetsHH/vue-skeleton/archive/master.zip)
 * Open a command prompt on your OS (if not already open) and navigate to the project folder

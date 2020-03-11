@@ -4,12 +4,12 @@
  * @param gulp mixed
  * @param module mixed
  * @param paths array
- * @param lintFile string
+ * @param file string
  * @return gulp signal
  */
-function lint(gulp, module, paths, lintFile) {
+function lint(gulp, module, paths, file) {
     return gulp.src(paths)
-        .pipe(module(require('./' + lintFile + '-lint.json')))
+        .pipe(module(require('./' + file + '-lint.json')))
         .pipe(module.format())
         .pipe(module.failOnError());
 }

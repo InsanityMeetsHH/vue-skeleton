@@ -1,7 +1,6 @@
 import Home from '../components/pages/home';
 import About from '../components/pages/about';
 import ErrorPage from '../components/pages/error-page';
-import i18n from './i18n';
 
 const routes = [
     {
@@ -14,11 +13,11 @@ const routes = [
             metaTags: [
                 {
                     name: 'description',
-                    content: 'The home page of our example app.'
+                    content: 'The i18n.nav-home page of our example app.'
                 },
                 {
                     property: 'og:description',
-                    content: 'The home page of our example app.'
+                    content: 'The i18n.nav-home page of our example app.'
                 }
             ]
         }
@@ -33,11 +32,11 @@ const routes = [
             metaTags: [
                 {
                     name: 'description',
-                    content: 'The about page.'
+                    content: 'The i18n.nav-about page.'
                 },
                 {
                     property: 'og:description',
-                    content: 'The about page.'
+                    content: 'The i18n.nav-about page.'
                 }
             ]
         }
