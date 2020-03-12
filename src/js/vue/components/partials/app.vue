@@ -8,8 +8,8 @@
             }
         },
         mounted: function() {
+            jQuery('html').attr('lang', this.$t('lang'));
             jQuery('html').removeClass('no-js');
-            jQuery('[data-toggle="tooltip"]').tooltip();
         }
     };
 </script>

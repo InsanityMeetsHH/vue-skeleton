@@ -74,3 +74,4 @@ Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeet
 * [ESLint Import Rules](https://github.com/benmosher/eslint-plugin-import/tree/master/docs/rules)
 * [Sass Lint Rules](https://github.com/sasstools/sass-lint/tree/develop/docs/rules)
 * [Vue SFC](https://github.com/nfplee/gulp-vue-single-file-component)
+* [Path to RegExp](https://github.com/pillarjs/path-to-regexp/tree/v1.7.0#parameters)

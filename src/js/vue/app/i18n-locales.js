@@ -1,4 +1,6 @@
 const en = {
+    'app': 'Vue Skeleton',
+    'author': 'InsanityMeetsHH',
     'bootstrap': 'Bootstrap 4',
     'cookieconsent': 'Cookieconsent 3',
     'cookie-policy-title': 'Cookie Policy',
@@ -16,13 +18,6 @@ const en = {
     'slick': 'Slick Carousel',
     'type': 'Type {0}',
     'vuejs': 'Vue.js 2',
-
-    'lang-de': 'Deutsch',
-    'lang-en': 'English',
-
-    'nav-about': 'About us',
-    'nav-error': 'Error page',
-    'nav-home': 'Home',
 
     'cl-allow': 'Allow cookies',
     'cl-allow-link': 'Allow cookies',
@@ -42,7 +37,27 @@ const en = {
     'cpm-type2': 'Type 2 = Function cookie',
     'cpm-type3': 'Type 3 = Service cookie',
     'cpm-type4': 'Type 4 = Third party cookie',
-    
+
+    'lang-de': 'Deutsch',
+    'lang-en': 'English',
+
+    'lang': 'en',
+    'locale': 'en_US',
+
+    'meta-keywords': 'gulp, vue, vue router, vue i18n, templating, skeleton, boilerplate, bootstrap, fontawesome, slick, carousel, lazyload, css user agent, cssua, cookieconsent, cookie, docker, jquery',
+    'meta-description': '',
+    'meta-author': 'InsanityMeetsHH',
+
+    'nav-about': 'About us',
+    'nav-error': 'Error page',
+    'nav-home': 'Home',
+
+    'sm-facebook': '',
+    'sm-instagram': 'https://www.instagram.com/insanitymeetshh/',
+    'sm-twitch': 'https://www.twitch.tv/insanitymeetshh',
+    'sm-twitter': 'https://twitter.com/InsanityMeetsHH',
+    'sm-youtube': 'https://www.youtube.com/channel/UCQhN04sk-qPWMo9cn6g_DRw',
+
     'dp': '.',
     'ts': ',',
     'date': 'Y-m-d',
@@ -75,13 +90,6 @@ const de = {
     'type': 'Typ {0}',
     'vuejs': 'Vue.js 2',
 
-    'lang-de': 'Deutsch',
-    'lang-en': 'English',
-
-    'nav-about': 'Über uns',
-    'nav-error': 'Fehlerseite',
-    'nav-home': 'Startseite',
-
     'cl-allow': 'Cookies zulassen',
     'cl-allow-link': 'Cookies zulassen',
     'cl-deny': 'Verweigern',
@@ -100,6 +108,13 @@ const de = {
     'cpm-type2': 'Typ 2 = Funktions-Cookie',
     'cpm-type3': 'Typ 3 = Leistungs-Cookie',
     'cpm-type4': 'Typ 4 = Cookie Dritter',
+
+    'lang': 'de',
+    'locale': 'de_DE',
+
+    'nav-about': 'Über uns',
+    'nav-error': 'Fehlerseite',
+    'nav-home': 'Startseite',
     
     'dp': ',',
     'ts': '.',

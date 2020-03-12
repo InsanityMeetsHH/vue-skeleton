@@ -1,6 +1,8 @@
 <script>
     export default {
         mounted: function() {
+            jQuery('[data-toggle="tooltip"]').tooltip();
+
             initCssuaMonitor();
             initImageLazyLoad();
             initSlider();
@@ -14,8 +16,8 @@
             <div class="row">
                 <div class="col-12 pb-5 text-center">
                     <h1>
-                        Vue Skeleton - InsanityMeetsHH&nbsp;&nbsp;
-                        <a href="https://github.com/InsanityMeetsHH/vue-skeleton" target="_blank"><i class="fab fa-inverse fa-github" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="GitHub"></i></a>
+                        {{ $t("app") }} - {{ $t("author") }}&nbsp;&nbsp;
+                        <a href="https://github.com/InsanityMeetsHH/vue-skeleton" target="_blank" data-toggle="tooltip" data-placement="bottom" title="GitHub"><font-awesome-icon :icon="['fab', 'github']" class="fa-inverse" /></a>
                     </h1>
                 </div>
             </div>
