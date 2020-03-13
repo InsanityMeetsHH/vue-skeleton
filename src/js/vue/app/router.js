@@ -14,37 +14,53 @@ const router = new VueRouter({
      * Returns translated meta string
      *
      * Examples:
-     * i18n.nav-home (just locale key)
-     * i18n.nav-home(lorem ipsum|foobar|1234) (locale key with params)
-     * router.currentRoute (get current route)
+     * i18n.nav-home (just message key)
+     * i18n.nav-home(lorem ipsum|foobar|1234) (message key with params)
+     * router.current-route (get current route)
+     * router.param-id (get value of param "id")
      *
      * @param meta string
      * @param to null|object
      * @returns string
      */
     translateMeta: function(meta, to) {
-        let currentRouteRegExp = /router\.currentRoute/gi;
-        let paramsRegExp = /\([0-9a-z,| äüöß]+\)/gi;
-        let metaRegExp = new RegExp('i18n\\.([a-z-]+)(' + paramsRegExp.source + ')?', 'gi');
-        let cleanRegExp = new RegExp('i18n\\.|' + paramsRegExp.source, 'gi');
-        let metaMatches = meta.match(metaRegExp);
+        let routerRegExp = /router\.([a-z-]+)/gi;
+        let routerParamRegExp = /param-([a-z]+)/i;
+        let routerMatches = meta.match(routerRegExp);
 
-        // if currentRoute exists
-        if (currentRouteRegExp.test(meta)) {
-            meta = meta.replace(currentRouteRegExp, window.location.origin + '/#' + to.path);
+        let i18nParamsRegExp = /\([0-9a-z,| äüöß]+\)/gi;
+        let i18nRegExp = new RegExp('i18n\\.([a-z-]+)(' + i18nParamsRegExp.source + ')?', 'gi');
+        let i18nCleanRegExp = new RegExp('i18n\\.|' + i18nParamsRegExp.source, 'gi');
+        let i18nMatches = meta.match(i18nRegExp);
+
+        // if routerMatches is not empty
+        if (routerMatches !== null) {
+            for (let i = 0; i < routerMatches.length; i++) {
+                // if param exists
+                if (routerParamRegExp.test(routerMatches[i])) {
+                    if (typeof to.params[routerMatches[i].match(routerParamRegExp)[1]] === 'string') {
+                        meta = meta.replace(routerMatches[i], to.params[routerMatches[i].match(routerParamRegExp)[1]]);
+                    }
+                }
+
+                // if current-route exists
+                if (/router\.current-route/gi.test(meta)) {
+                    meta = meta.replace(/router\.current-route/gi, window.location.origin + '/#' + to.path);
+                }
+            }
         }
 
-        // if metaMatches is not empty
-        if (metaMatches !== null) {
-            for (let i = 0; i < metaMatches.length; i++) {
+        // if i18nMatches is not empty
+        if (i18nMatches !== null) {
+            for (let i = 0; i < i18nMatches.length; i++) {
                 let params = []; // eslint-disable-line array-bracket-newline
 
                 // if params exists
-                if (paramsRegExp.test(metaMatches[i])) {
-                    params = metaMatches[i].match(paramsRegExp)[0].replace(/\(|\)/g, '').split('|');
+                if (i18nParamsRegExp.test(i18nMatches[i])) {
+                    params = i18nMatches[i].match(i18nParamsRegExp)[0].replace(/\(|\)/g, '').split('|');
                 }
 
-                meta = meta.replace(metaMatches[i], i18n.t(metaMatches[i].replace(cleanRegExp, ''), params));
+                meta = meta.replace(i18nMatches[i], i18n.t(i18nMatches[i].replace(i18nCleanRegExp, ''), params));
             }
         }
 

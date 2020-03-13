@@ -22,7 +22,7 @@ const routes = [
                 { property: 'og:description', content: 'i18n.meta-description' },
                 { property: 'og:image', content: '' },
                 { property: 'og:site_name', content: 'i18n.nav-home' },
-                { property: 'og:url', content: 'router.currentRoute' },
+                { property: 'og:url', content: 'router.current-route' },
                 { property: 'og:locale', content: 'i18n.locale' },
                 { property: 'article:publisher', content: '' },
                 { name: 'twitter:card', content: 'summary_large_image' },
@@ -33,7 +33,7 @@ const routes = [
             ],
             linkTags: [
                 { rel: 'me', href: 'i18n.sm-twitter' },
-                { rel: 'canonical', href: 'router.currentRoute' }
+                { rel: 'canonical', href: 'router.current-route' }
             ]
         }
     },
@@ -56,7 +56,7 @@ const routes = [
                 { property: 'og:description', content: 'i18n.meta-description' },
                 { property: 'og:image', content: '' },
                 { property: 'og:site_name', content: 'i18n.nav-about' },
-                { property: 'og:url', content: 'router.currentRoute' },
+                { property: 'og:url', content: 'router.current-route' },
                 { property: 'og:locale', content: 'i18n.locale' },
                 { property: 'article:publisher', content: '' },
                 { name: 'twitter:card', content: 'summary_large_image' },
@@ -67,7 +67,7 @@ const routes = [
             ],
             linkTags: [
                 { rel: 'me', href: 'i18n.sm-twitter' },
-                { rel: 'canonical', href: 'router.currentRoute' }
+                { rel: 'canonical', href: 'router.current-route' }
             ]
         }
     },
@@ -89,7 +89,7 @@ const routes = [
                 { property: 'og:description', content: 'i18n.meta-description' },
                 { property: 'og:image', content: '' },
                 { property: 'og:site_name', content: 'i18n.nav-error' },
-                { property: 'og:url', content: 'router.currentRoute' },
+                { property: 'og:url', content: 'router.current-route' },
                 { property: 'og:locale', content: 'i18n.locale' },
                 { property: 'article:publisher', content: '' },
                 { name: 'twitter:card', content: 'summary_large_image' },
@@ -100,7 +100,7 @@ const routes = [
             ],
             linkTags: [
                 { rel: 'me', href: 'i18n.sm-twitter' },
-                { rel: 'canonical', href: 'router.currentRoute' }
+                { rel: 'canonical', href: 'router.current-route' }
             ]
         }
     }

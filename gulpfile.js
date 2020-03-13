@@ -52,7 +52,6 @@ function js() {
             'node_modules/cookieconsent/src/cookieconsent.js',
             config.sourcePath + 'js/plugin/**/*.js',
             config.sourcePath + 'js/module/**/*.js',
-//            app.sourcePath + 'js/vue/**/*.js',
             config.sourcePath + 'js/scripts.js'
         ])
         .pipe(sourcemaps.init())
@@ -93,8 +92,8 @@ function jsRequire() {
     
     for (const key of moduleKeys) {
         returnValue = gulp.src(modules[key])
-            .pipe(uglify())
             .pipe(rename({ basename: key }))
+            .pipe(gulpIf(isEnv(['test', 'prod'], config.env), uglify()))
 //            .pipe(gulp.dest(config.systemPath + 'js/require/'))
             .pipe(gulp.dest(config.publicPath + 'js/require/'));
     }
@@ -159,6 +158,7 @@ function vue() {
         .pipe(vueSfc({ debug: false, loadCssMethod: 'loadCss' }))
         .pipe(babel({ plugins: ['@babel/plugin-transform-modules-amd'] }))
         .pipe(rename({ extname: '.js' }))
+        .pipe(gulpIf(isEnv(['test', 'prod'], config.env), uglify()))
 //        .pipe(gulp.dest(config.systemPath + 'js/vue/'))
         .pipe(gulp.dest(config.publicPath + 'js/vue/'));
 }
@@ -167,6 +167,7 @@ function vue() {
 function vueJs() {
     return gulp.src(config.sourcePath + 'js/vue/**/*.js')
         .pipe(babel({ plugins: ['@babel/plugin-transform-modules-amd'] }))
+        .pipe(gulpIf(isEnv(['test', 'prod'], config.env), uglify()))
 //        .pipe(gulp.dest(config.systemPath + 'js/vue/'))
         .pipe(gulp.dest(config.publicPath + 'js/vue/'));
 }
