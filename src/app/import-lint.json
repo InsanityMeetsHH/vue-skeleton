@@ -11,7 +11,7 @@
     },
     "rules": {
         "import/no-unresolved": [2, {
-            "ignore": ["(.*)components(.*)"]
+            "ignore": ["(.*)component(.*)"]
         }],
         "import/named": "error",
         "import/namespace": "error",

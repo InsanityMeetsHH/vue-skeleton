@@ -1,11 +1,16 @@
 <script>
+    import cssuaMonitor from '../../method/cssua-monitor';
+    import imageLazyLoad from '../../method/image-lazyload';
+    import slider from '../../method/slider';
+    
     export default {
+        mixins: [cssuaMonitor, imageLazyLoad, slider],
         mounted: function() {
             jQuery('[data-toggle="tooltip"]').tooltip();
 
-            initCssuaMonitor();
-            initImageLazyLoad();
-            initSlider();
+            this.initCssuaMonitor();
+            this.initImageLazyLoad();
+            this.initSlider();
         }
     };
 </script>

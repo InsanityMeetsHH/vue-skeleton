@@ -1,6 +1,6 @@
-import Home from '../components/pages/home';
-import About from '../components/pages/about';
-import ErrorPage from '../components/pages/error-page';
+import Home from '../component/page/home';
+import About from '../component/page/about';
+import ErrorPage from '../component/page/error-page';
 
 const routes = [
     {

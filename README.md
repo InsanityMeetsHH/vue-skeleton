@@ -56,7 +56,7 @@ Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeet
 
 ## Localization
 - [`i18n-locales.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/app/i18n-locales.js)
-- [`langswitch.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/components/partials/langswitch.vue)
+- [`langswitch.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/component/partial/langswitch.vue)
 
 ## Installation with [Docker](https://www.docker.com/)
 * Get project via `$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git` or [zip download](https://github.com/InsanityMeetsHH/vue-skeleton/archive/master.zip)

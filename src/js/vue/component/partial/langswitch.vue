@@ -1,5 +1,9 @@
 <script>
+    import cookieConsent from '../../method/cookie-consent';
+    import slider from '../../method/slider';
+    
     export default {
+        mixins: [cookieConsent, slider],
         data: function() {
             return {
                 currentLocale: 'en',
@@ -21,28 +25,15 @@
         },
         methods: {
             changeLang: function(lang) {
-                this.$i18n.locale = lang;
+                let $this = this;
+                $this.$i18n.locale = lang;
                 localStorage.currentLocale = lang;
-                
-                cookieLayer = {
-                    header: this.$t('cl-header'),
-                    message: this.$t('cl-message'),
-                    allow: this.$t('cl-allow'),
-                    dismiss: this.$t('cl-dismiss'),
-                    deny: this.$t('cl-deny'),
-                    link: this.$t('cl-link'),
-                    messageLink: this.$t('cl-message-link'),
-                    dismissLink: this.$t('cl-dismiss-link'),
-                    allowLink: this.$t('cl-allow-link'),
-                    policy: this.$t('cl-policy'),
-                    href: this.$t('cl-href')
-                };
 
-                // workaround: initSlider() is called, but its not right translated
+                // workaround: initSlider() is called, but it's not right translated
                 // if you slide to the left, after language has changed
                 setTimeout(function() {
-                    initCookieConsent();
-                    initSlider();
+                    $this.initCookieConsent();
+                    $this.initSlider();
                 }, 100);
             }
         }

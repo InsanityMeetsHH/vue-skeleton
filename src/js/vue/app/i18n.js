@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import { locales } from './i18n-locales';
-import LangSwitch from '../components/partials/langswitch';
+import LangSwitch from '../component/partial/langswitch';
 
 Vue.use(VueI18n);
 

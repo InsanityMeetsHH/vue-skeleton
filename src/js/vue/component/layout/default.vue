@@ -1,7 +1,7 @@
 <script>
-    import Footer from '../partials/footer';
-    import Header from '../partials/header';
-    import ModalCookiePolicy from '../partials/modal-cookie-policy';
+    import Footer from '../partial/footer';
+    import Header from '../partial/header';
+    import ModalCookiePolicy from '../partial/modal-cookie-policy';
 
     export default {
         components: {
