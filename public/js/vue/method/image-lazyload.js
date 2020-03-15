@@ -1,0 +1,1 @@
+define(["exports"],(function(a){"use strict";Object.defineProperty(a,"__esModule",{value:!0}),a.default=void 0;var e={methods:{forceImageLoad:function(){var a;(a=jQuery)("img[data-src]:not(.loaded)").each((function(){a(this).attr("src",a(this).data("src")),a(this).addClass("loaded")}))},initImageLazyLoad:function(){new LazyLoad({})}}};a.default=e}));

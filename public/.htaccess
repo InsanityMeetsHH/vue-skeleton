@@ -1,7 +1,7 @@
 RewriteEngine on
 
 # For some web hosts the next line has to be activated 
-#RewriteBase /
+RewriteBase /
 
 # Redirect HTTP to HTTPS if host is insanitymeetshh.net
 RewriteCond %{HTTPS} off
