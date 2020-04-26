@@ -45,6 +45,7 @@ function js() {
     return gulp.src([
             'node_modules/jquery/dist/jquery.js',
             'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+            'node_modules/moment/moment.js',
             config.sourcePath + 'js/lib/**/*.js',
             'node_modules/slick-carousel/slick/slick.js',
             'node_modules/cssuseragent/cssua.js',
@@ -213,7 +214,7 @@ function browserSyncInit(done) {
         },
         ui: {
             port: 3001
-        },
+        }
         // ui: false, // enable in production
         // server: false, // enable if you use Docker
         // proxy: config.localServer // enable if you use Docker
@@ -273,6 +274,9 @@ exports.watch = watch;
 exports.watchAndReload = watchAndReload;
 exports.browserSyncInit = browserSyncInit;
 exports.browserSyncReload = browserSyncReload;
+
+// lintAll task
+gulp.task('lintAll', gulp.series(scssLint, jsLint, vueJsLint, vueLint));
 
 // build task
 gulp.task('build', gulp.series(cleanUp, scss, scssLint, js, jsLint, jsRequire, json, img, font, svg, vue, vueJs, vueJsLint, vueLint));

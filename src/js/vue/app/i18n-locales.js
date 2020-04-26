@@ -60,9 +60,13 @@ const en = {
 
     'dp': '.',
     'ts': ',',
-    'date': 'Y-m-d',
-    'time': 'g:ia',
-    'datetime': 'Y-m-d g:ia',
+    'date': 'YYYY-MM-DD',
+    'time': 'hh:mm',
+    'time-suffix': 'hh:mm a',
+    'time-long': 'hh:mm:ss',
+    'time-long-suffix': 'hh:mm:ss a',
+    'datetime': 'YYYY-MM-DD hh:mm:ss',
+    'datetime-suffix': 'YYYY-MM-DD hh:mm:ss a',
     'timezone': 'America/New_York',
     
     'month': '{0} month',
@@ -118,9 +122,13 @@ const de = {
     
     'dp': ',',
     'ts': '.',
-    'date': 'd.m.Y',
-    'time': 'Hi Uhr',
-    'datetime': 'd.m.Y H:i Uhr',
+    'date': 'DD.MM.YYYY',
+    'time': 'HH:mm',
+    'time-suffix': 'HH:mm \\U\\h\\r',
+    'time-long': 'HH:mm:ss',
+    'time-long-suffix': 'HH:mm:ss \\U\\h\\r',
+    'datetime': 'DD.MM.YYYY HH:mm:ss',
+    'datetime-suffix': 'DD.MM.YYYY HH:mm:ss \\U\\h\\r',
     'timezone': 'Europe/Berlin',
     
     'month': '{0} Monat',

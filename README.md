@@ -7,7 +7,7 @@
 * [Bootstrap 4](https://getbootstrap.com)
 * [Font Awesome 5](https://fontawesome.com)
 * [Slick Carousel 1](http://kenwheeler.github.io/slick/)
-* [LazyLoad 8](https://www.andreaverlicchi.eu/lazyload/)
+* [LazyLoad 15](https://www.andreaverlicchi.eu/lazyload/)
 * [CSS User Agent 2](https://www.npmjs.com/package/cssuseragent)
 * [Cookieconsent 3](https://github.com/insites/cookieconsent)
 * [Vue 2](https://vuejs.org/)
@@ -19,7 +19,6 @@
 * [Node.js](http://nodejs.org/en/download/)
 * [npm](http://www.npmjs.com/get-npm) `$ npm i npm@latest -g`
 * [gulp-cli](https://www.npmjs.com/package/gulp-cli) `$ npm i gulp-cli@latest -g`
-* PHP >= 5.3
 * [Docker](https://www.docker.com/) ([for installation with Docker](https://github.com/InsanityMeetsHH/vue-skeleton#installation-with-docker))
 
 ## Installation (Recommended)
@@ -38,6 +37,7 @@ Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeet
 |---------------------|----------------------------------------------------------------------------------------------------------------------------|
 | gulp                | watch files and start [BrowserSync](https://www.npmjs.com/package/browser-sync)                                            |
 | gulp build          | executes following tasks: cleanUp, scss, scssLint, js, jsLint, jsRequire, json, img, font, svg, vue, vueJs, vueLint        |
+| gulp lintAll        | executes following tasks: scssLint, jsLint, vueJsLint, vueLint                                                             |
 | gulp cleanUp        | clean up public folder                                                                                                     |
 | gulp font           | copy font files                                                                                                            |
 | gulp img            | copy and compress images                                                                                                   |
