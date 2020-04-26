@@ -25,7 +25,7 @@
 ```bash
 $ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git [app-name]
 $ cd [app-name]
-$ rm -rf .git
+$ rm -rf .git (unix) / rmdir .git /s (windows)
 $ npm i
 $ gulp build
 $ gulp (in development)

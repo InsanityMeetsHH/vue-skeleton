@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - moment 2.24.0
 
 ### Changed
+- all bg-info to bg-primary
 - [`import-lint.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/import-lint.json)
 - [`js-lint.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/js-lint.json)
 - [`vue-lint.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/vue-lint.json)
@@ -27,7 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - gulp-clean-css from 4.2.0 to 4.3.0
 - gulp-sass from 4.0.2 to 4.1.0
 - fortawesome icons from 5.12.1 to 5.13.0
-- jquery from 3.4.1 to 3.5.0
 - vanilla-lazyload from 13.0.1 to 15.1.1
 - vue-i18n from 8.15.5 to 8.17.3
 

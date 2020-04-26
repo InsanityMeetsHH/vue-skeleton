@@ -42,7 +42,7 @@
 
 <template>
     <div class="btn-group dropup">
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <font-awesome-icon :icon="['fas', 'globe']" />
         </button>
         <div class="dropdown-menu">
