@@ -6,6 +6,7 @@ const babel       = require('gulp-babel');
 const minifyCss   = require('gulp-clean-css');
 const concat      = require('gulp-concat');
 const eslint      = require('gulp-eslint');
+const favicons    = require('gulp-favicons');
 const gulpIf      = require('gulp-if');
 const minifyImg   = require('gulp-imagemin');
 const minifyJson  = require('gulp-jsonminify');
@@ -20,24 +21,87 @@ const config      = require('./src/app/gulpfile.json');
 const isEnv       = require('./src/app/is-env');
 const lint        = require('./src/app/lint');
 
-// processing scss to css and minify result
-function scss() {
-    return gulp.src(config.sourcePath + 'scss/styles.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass())
-        .pipe(prefixer({
-            overrideBrowserslist: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(gulpIf(isEnv(['test', 'prod'], config.env), minifyCss({compatibility: 'ie8'})))
-        .pipe(sourcemaps.write('./'))
-//        .pipe(gulp.dest(config.systemPath + 'css/'))
-        .pipe(gulp.dest(config.publicPath + 'css/'));
+// initialize BrowserSync
+function browserSyncInit(done) {
+    browserSync.init(config[config.browserSyncConfig]);
+    done();
 }
 
-// lint scss files
-function scssLint() {
-    return lint(gulp, sassLint, [config.sourcePath + 'scss/**/*.scss'], 'scss');
+// reload browser
+function browserSyncReload(done) {
+    browserSync.reload();
+    done();
+}
+
+// clean up folders
+function cleanUp() {
+//    del([
+//            config.systemPath + 'css/**/*',
+//            config.systemPath + 'js/**/*',
+//            config.systemPath + 'img/**/*',
+//            config.systemPath + 'json/**/*',
+//            config.systemPath + 'font/**/*',
+//            config.systemPath + 'svg/**/*'
+//        ], {force: true});
+        
+    return del([
+            config.publicPath + 'css/**/*',
+            config.publicPath + 'js/**/*',
+            config.publicPath + 'img/**/*',
+            config.publicPath + 'json/**/*',
+            config.publicPath + 'font/**/*',
+            config.publicPath + 'svg/**/*'
+        ]);
+}
+
+// generate favicons
+function favicon() {
+    return gulp.src('./src/img/favicon.png')
+    .pipe(
+      favicons({
+        appName: 'Vue Skeleton',
+        appShortName: 'Vue Skeleton',
+        appDescription: 'This is my application',
+        developerName: 'InsanityMeetsHH',
+        developerURL: 'https://insanitymeetshh.net/',
+        background: '#212121',
+        path: 'img/favicons/',
+        url: 'https://vue.insanitymeetshh.net/',
+        display: 'standalone',
+        orientation: 'portrait',
+        scope: '/',
+        start_url: '/#/',
+        version: 1.0,
+        logging: false,
+        html: 'index.html',
+        pipeHTML: true,
+        replace: true
+      })
+    )
+    .pipe(gulp.dest('./public/img/favicons/'));
+}
+
+// copy font files
+function font() {
+    return gulp.src([
+//            'node_modules/@fortawesome/fontawesome-free/webfonts/**',
+            'node_modules/slick-carousel/slick/fonts/**',
+            config.sourcePath + 'font/**'
+        ])
+//        .pipe(gulp.dest(config.systemPath + 'font/'))
+        .pipe(gulp.dest(config.publicPath + 'font/'));
+}
+
+// compress images
+function img() {
+    return gulp.src(config.sourcePath + 'img/**/*.{png,gif,jpg,jpeg,ico,xml,json,svg}')
+        .pipe(minifyImg([
+            minifyImg.gifsicle({interlaced: true}),
+            minifyImg.mozjpeg({progressive: true}),
+            minifyImg.optipng({optimizationLevel: 5})
+        ]))
+//        .pipe(gulp.dest(config.systemPath + 'img/'))
+        .pipe(gulp.dest(config.publicPath + 'img/'));
 }
 
 // concatenate and uglify js files
@@ -45,6 +109,7 @@ function js() {
     return gulp.src([
             'node_modules/jquery/dist/jquery.js',
             'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+//            'node_modules/@fortawesome/fontawesome-free/js/all.js',
             'node_modules/moment/moment.js',
             config.sourcePath + 'js/lib/**/*.js',
             'node_modules/slick-carousel/slick/slick.js',
@@ -74,7 +139,6 @@ function jsRequire() {
     const modules = {
         'require': 'node_modules/requirejs/require.js',
         'vue': 'node_modules/vue/dist/vue.min.js',
-//        'fontawesome-free-all': 'node_modules/@fortawesome/fontawesome-free/js/all.js',
         'vue-router': 'node_modules/vue-router/dist/vue-router.min.js',
         'vue-i18n': 'node_modules/vue-i18n/dist/vue-i18n.js',
         'fontawesome-svg-core': 'node_modules/@fortawesome/fontawesome-svg-core/index.js',
@@ -111,27 +175,24 @@ function json() {
         .pipe(gulp.dest(config.publicPath + 'json/'));
 }
 
-// compress images
-function img() {
-    return gulp.src(config.sourcePath + 'img/**/*.{png,gif,jpg,jpeg,ico,xml,json,svg}')
-        .pipe(minifyImg([
-            minifyImg.gifsicle({interlaced: true}),
-            minifyImg.mozjpeg({progressive: true}),
-            minifyImg.optipng({optimizationLevel: 5})
-        ]))
-//        .pipe(gulp.dest(config.systemPath + 'img/'))
-        .pipe(gulp.dest(config.publicPath + 'img/'));
+// processing scss to css and minify result
+function scss() {
+    return gulp.src(config.sourcePath + 'scss/styles.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(prefixer({
+            overrideBrowserslist: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulpIf(isEnv(['test', 'prod'], config.env), minifyCss({compatibility: 'ie8'})))
+        .pipe(sourcemaps.write('./'))
+//        .pipe(gulp.dest(config.systemPath + 'css/'))
+        .pipe(gulp.dest(config.publicPath + 'css/'));
 }
 
-// copy font files
-function font() {
-    return gulp.src([
-//            'node_modules/@fortawesome/fontawesome-free/webfonts/**',
-            'node_modules/slick-carousel/slick/fonts/**',
-            config.sourcePath + 'font/**'
-        ])
-//        .pipe(gulp.dest(config.systemPath + 'font/'))
-        .pipe(gulp.dest(config.publicPath + 'font/'));
+// lint scss files
+function scssLint() {
+    return lint(gulp, sassLint, [config.sourcePath + 'scss/**/*.scss'], 'scss');
 }
 
 // compress and copy svg files
@@ -183,68 +244,27 @@ function vueLint() {
     return lint(gulp, eslint, [config.sourcePath + 'js/vue/**/*.vue'], 'vue');
 }
 
-// clean up folders
-function cleanUp() {
-//    del([
-//            config.systemPath + 'css/**/*',
-//            config.systemPath + 'js/**/*',
-//            config.systemPath + 'img/**/*',
-//            config.systemPath + 'json/**/*',
-//            config.systemPath + 'font/**/*',
-//            config.systemPath + 'svg/**/*'
-//        ], {force: true});
-        
-    return del([
-            config.publicPath + 'css/**/*',
-            config.publicPath + 'js/**/*',
-            config.publicPath + 'img/**/*',
-            config.publicPath + 'json/**/*',
-            config.publicPath + 'font/**/*',
-            config.publicPath + 'svg/**/*'
-        ]);
-}
-
-// initialize BrowserSync
-function browserSyncInit(done) {
-    browserSync.init({
-        port: 3000,
-        server: {
-            baseDir: "public",
-            index: "index.html"
-        },
-        ui: {
-            port: 3001
-        }
-        // ui: false, // enable in production
-        // server: false, // enable if you use Docker
-        // proxy: config.localServer // enable if you use Docker
-    });
-    done();
-}
-
-// reload browser
-function browserSyncReload(done) {
-    browserSync.reload();
-    done();
-}
-
 // watch files
 function watch() {
-    // watch scss files
-    gulp.watch(config.sourcePath + 'scss/**', gulp.series(scss, scssLint));
+    // watch fonts
+    gulp.watch(config.sourcePath + 'font/**', font);
+    // watch images
+    gulp.watch(config.sourcePath + 'img/**', img);
+    // watch favicon
+    gulp.watch(config.sourcePath + 'img/favicon.png', favicon);
     // watch js files
     gulp.watch([
         config.sourcePath + 'js/{lib,module,plugin}/*.js',
         config.sourcePath + 'js/scripts.js'
     ], gulp.series(js, jsLint));
+    // watch require js files
+    gulp.watch(config.sourcePath + 'js/module/require-config.js', jsRequire);
     // watch vue files
     gulp.watch(config.sourcePath + 'js/vue/**', gulp.series(vue, vueJs, vueJsLint, vueLint));
-    // watch images
-    gulp.watch(config.sourcePath + 'img/**', img);
     // watch json files
     gulp.watch(config.sourcePath + 'json/**', json);
-    // watch fonts
-    gulp.watch(config.sourcePath + 'font/**', font);
+    // watch scss files
+    gulp.watch(config.sourcePath + 'scss/**', gulp.series(scss, scssLint));
     // watch svg
     gulp.watch(config.sourcePath + 'svg/**', svg);
 }
@@ -256,30 +276,31 @@ function watchAndReload() {
     gulp.watch(config.publicPath + '**/*.{css,eot,ico,js,json,jpg,otf,png,svg,ttf,woff,woff2}', browserSyncReload);
 }
 
-exports.scss = scss;
-exports.scssLint = scssLint;
+exports.browserSyncInit = browserSyncInit;
+exports.browserSyncReload = browserSyncReload;
+exports.cleanUp = cleanUp;
+exports.favicon = favicon;
+exports.font = font;
+exports.img = img;
 exports.js = js;
 exports.jsLint = jsLint;
 exports.jsRequire = jsRequire;
 exports.json = json;
-exports.img = img;
-exports.font = font;
+exports.scss = scss;
+exports.scssLint = scssLint;
 exports.svg = svg;
 exports.vue = vue;
 exports.vueJs = vueJs;
 exports.vueJsLint = vueJsLint;
 exports.vueLint = vueLint;
-exports.cleanUp = cleanUp;
 exports.watch = watch;
 exports.watchAndReload = watchAndReload;
-exports.browserSyncInit = browserSyncInit;
-exports.browserSyncReload = browserSyncReload;
 
 // lintAll task
-gulp.task('lintAll', gulp.series(scssLint, jsLint, vueJsLint, vueLint));
+gulp.task('lintAll', gulp.series(jsLint, scssLint, vueJsLint, vueLint));
 
 // build task
-gulp.task('build', gulp.series(cleanUp, scss, scssLint, js, jsLint, jsRequire, json, img, font, svg, vue, vueJs, vueJsLint, vueLint));
+gulp.task('build', gulp.series(cleanUp, favicon, font, img, js, jsLint, jsRequire, json, scss, scssLint, svg, vue, vueJs, vueJsLint, vueLint));
 
 // default task if you just call "gulp"
 gulp.task('default', gulp.parallel(watchAndReload, browserSyncInit));

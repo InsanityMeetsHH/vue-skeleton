@@ -36,9 +36,10 @@ Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeet
 |                     | Description                                                                                                                |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------|
 | gulp                | watch files and start [BrowserSync](https://www.npmjs.com/package/browser-sync)                                            |
-| gulp build          | executes following tasks: cleanUp, scss, scssLint, js, jsLint, jsRequire, json, img, font, svg, vue, vueJs, vueLint        |
-| gulp lintAll        | executes following tasks: scssLint, jsLint, vueJsLint, vueLint                                                             |
+| gulp build          | executes following tasks: cleanUp, favicon, font, img, js, jsLint, jsRequire, json, scss, scssLint, svg, vue, vueJs, vueJsLint, vueLint |
+| gulp lintAll        | executes following tasks: jsLint, scssLint, vueJsLint, vueLint                                                             |
 | gulp cleanUp        | clean up public folder                                                                                                     |
+| gulp favicon        | generate favicons                                                                                                          |
 | gulp font           | copy font files                                                                                                            |
 | gulp img            | copy and compress images                                                                                                   |
 | gulp js             | uglify, minify and concat js files                                                                                         |
