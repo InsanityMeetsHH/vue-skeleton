@@ -36,20 +36,20 @@ function browserSyncReload(done) {
 // clean up folders
 function cleanUp() {
 //    del([
-//            config.systemPath + 'css/**/*',
-//            config.systemPath + 'js/**/*',
-//            config.systemPath + 'img/**/*',
-//            config.systemPath + 'json/**/*',
+//            config.systemPath + 'css/styles.*',
 //            config.systemPath + 'font/**/*',
+//            config.systemPath + 'img/**/*',
+//            config.systemPath + 'js/scripts.*',
+//            config.systemPath + 'json/**/*',
 //            config.systemPath + 'svg/**/*'
 //        ], {force: true});
-        
+
     return del([
-            config.publicPath + 'css/**/*',
-            config.publicPath + 'js/**/*',
-            config.publicPath + 'img/**/*',
-            config.publicPath + 'json/**/*',
+            config.publicPath + 'css/styles.*',
             config.publicPath + 'font/**/*',
+            config.publicPath + 'img/**/*',
+            config.publicPath + 'js/scripts.*',
+            config.publicPath + 'json/**/*',
             config.publicPath + 'svg/**/*'
         ]);
 }
@@ -57,28 +57,27 @@ function cleanUp() {
 // generate favicons
 function favicon() {
     return gulp.src('./src/img/favicon.png')
-    .pipe(
-      favicons({
-        appName: 'Vue Skeleton',
-        appShortName: 'Vue Skeleton',
-        appDescription: 'This is my application',
-        developerName: 'InsanityMeetsHH',
-        developerURL: 'https://insanitymeetshh.net/',
-        background: '#212121',
-        path: 'img/favicons/',
-        url: 'https://vue.insanitymeetshh.net/',
-        display: 'standalone',
-        orientation: 'portrait',
-        scope: '/',
-        start_url: '/#/',
-        version: 1.0,
-        logging: false,
-        html: 'index.html',
-        pipeHTML: true,
-        replace: true
-      })
-    )
-    .pipe(gulp.dest('./public/img/favicons/'));
+        .pipe(favicons({
+            appName: 'Vue Skeleton',
+            appShortName: 'Vue Skeleton',
+            appDescription: 'This is my application',
+            developerName: 'InsanityMeetsHH',
+            developerURL: 'https://insanitymeetshh.net/',
+            background: '#212121',
+            path: 'img/favicons/',
+            url: 'https://vue.insanitymeetshh.net/',
+            display: 'standalone',
+            orientation: 'portrait',
+            scope: '/',
+            start_url: '/#/',
+            version: 1.0,
+            logging: false,
+            html: 'index.html',
+            pipeHTML: true,
+            replace: true
+        }))
+//        .pipe(gulp.dest(config.systemPath + 'img/favicons/'))
+        .pipe(gulp.dest(config.publicPath + 'img/favicons/'));
 }
 
 // copy font files
@@ -152,9 +151,9 @@ function jsRequire() {
         modules['vue'] = 'node_modules/vue/dist/vue.js';
         modules['vue-router'] = 'node_modules/vue-router/dist/vue-router.js';
     }
-    
+
     const moduleKeys = Object.keys(modules);
-    
+
     for (const key of moduleKeys) {
         returnValue = gulp.src(modules[key])
             .pipe(rename({ basename: key }))

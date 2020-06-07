@@ -7,7 +7,7 @@
 * [Bootstrap 4](https://getbootstrap.com)
 * [Font Awesome 5](https://fontawesome.com)
 * [Slick Carousel 1](http://kenwheeler.github.io/slick/)
-* [LazyLoad 15](https://www.andreaverlicchi.eu/lazyload/)
+* [LazyLoad 16](https://www.andreaverlicchi.eu/lazyload/)
 * [CSS User Agent 2](https://www.npmjs.com/package/cssuseragent)
 * [Cookieconsent 3](https://github.com/insites/cookieconsent)
 * [Vue 2](https://vuejs.org/)

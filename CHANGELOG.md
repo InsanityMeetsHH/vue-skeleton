@@ -6,7 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.0]
+## [1.3.0]
+### Changed
+- order in cleanUp task and how to remove files from js/css folder in [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js)
+- favicon task in [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js)
+- @babel/core 7.10.1 to 7.10.2
+- vanilla-lazyload 15.2.0 to 16.1.0
+
+## [1.2.0] - 2020-05-30
 ### Added
 - gulp-favicons 2.4.0
 - `require-config.js` watcher in [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js)
