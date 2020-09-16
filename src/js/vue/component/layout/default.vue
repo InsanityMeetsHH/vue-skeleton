@@ -1,13 +1,13 @@
 <script>
-    import Footer from '../partial/footer';
-    import Header from '../partial/header';
+    import LangSwitch from '../partial/langswitch';
     import ModalCookiePolicy from '../partial/modal-cookie-policy';
+    import Navigation from '../partial/navigation';
 
     export default {
         components: {
-            'c-footer': Footer,
-            'c-header': Header,
-            'c-modal-cookie-policy': ModalCookiePolicy
+            'c-langswitch': LangSwitch,
+            'c-modal-cookie-policy': ModalCookiePolicy,
+            'c-navigation': Navigation
         }
     };
 </script>
@@ -15,7 +15,11 @@
 <template>
     <div>
         <header>
-            <c-header />
+            <div class="container">
+                <div class="row">
+                    <c-navigation />
+                </div>
+            </div>
         </header>
         <main>
             <div class="container">
@@ -23,7 +27,11 @@
             </div>
         </main>
         <footer>
-            <c-footer />
+            <div class="container">
+                <div class="row">
+                    <c-langswitch drop="up" />
+                </div>
+            </div>
         </footer>
         <c-modal-cookie-policy />
     </div>

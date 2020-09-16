@@ -108,7 +108,7 @@
                             <h3 class="pb-2">
                                 {{ $t("lazyload-example") }}
                             </h3>
-                            <img src="img/slick/ajax-loader.gif" data-src="https://via.placeholder.com/266x140/2E97BF/212121?text=LazyLoad%20Image" alt="image" class="img-fluid">
+                            <img src="img/slick/ajax-loader.gif" data-src="https://via.placeholder.com/266x140/2E97BF/212121?text=LazyLoad%20Image" alt="image" class="img-fluid lazy">
                         </div>
                         <div class="col-12 col-md-6">
                             <h3 class="pb-2">

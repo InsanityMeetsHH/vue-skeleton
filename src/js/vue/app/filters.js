@@ -1,5 +1,7 @@
 const filters = {
     /**
+     * Returns formated timestamp or "-"
+     * 
      * @param {string|integer} timestamp in seconds
      * @param {string} format see https://momentjs.com/docs/#/parsing/
      * @returns {string}
@@ -12,6 +14,8 @@ const filters = {
         }
     },
     /**
+     * Returns formated duration in "HH:MM:SS h"
+     * 
      * @param {string|integer} timestamp in seconds
      * @param {string} format see https://momentjs.com/docs/#/durations/
      * @returns {string}

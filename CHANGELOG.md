@@ -7,11 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [1.3.0]
+### Added
+- [`partial/naviagation.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/component/partial/naviagation.vue)
+- CSS lazy class in [`page/home.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/component/page/home.vue)
+
 ### Changed
+- [`app/filters.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/app/filters.js) comments
+- [`layout/default.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/component/layout/default.vue)
+- [`partial/langswitch.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/component/partial/langswitch.vue)
 - order in cleanUp task and how to remove files from js/css folder in [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js)
 - favicon task in [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js)
-- @babel/core 7.10.1 to 7.10.2
-- vanilla-lazyload 15.2.0 to 16.1.0
+- @babel/core 7.10.1 to 7.11.6
+- @babel/plugin-transform-modules-amd 7.10.1 to 7.10.5
+- @fortawesome/fontawesome-free 5.13.0 to 5.14.0
+- @fortawesome/fontawesome-svg-core 1.2.28 to 1.2.30
+- @fortawesome/free-brands-svg-icons 5.13.0 to 5.14.0
+- @fortawesome/free-regular-svg-icons 5.13.0 to 5.14.0
+- @fortawesome/free-solid-svg-icons 5.13.0 to 5.14.0
+- @fortawesome/vue-fontawesome 0.1.9 to 2.0.0
+- bootstrap 4.5.0 to 4.5.2
+- browser-sync 2.26.7 to 2.26.12
+- eslint-plugin-import 2.20.2 to 2.22.0
+- moment 2.26.0 to 2.28.0
+- vanilla-lazyload 15.2.0 to 17.1.2
+- vue 2.6.11 to 2.6.12
+- vue-i18n 8.18.1 to 8.21.1
+- vue-router 3.3.2 to 3.4.3
+
+### Removed
+- partial/header.vue
+- partial/footer.vue
 
 ## [1.2.0] - 2020-05-30
 ### Added

@@ -39,6 +39,8 @@ function cleanUp() {
 //            config.systemPath + 'css/styles.*',
 //            config.systemPath + 'font/**/*',
 //            config.systemPath + 'img/**/*',
+//            config.systemPath + 'js/require/**/*',
+//            config.systemPath + 'js/vue/**/*',
 //            config.systemPath + 'js/scripts.*',
 //            config.systemPath + 'json/**/*',
 //            config.systemPath + 'svg/**/*'
@@ -48,6 +50,8 @@ function cleanUp() {
             config.publicPath + 'css/styles.*',
             config.publicPath + 'font/**/*',
             config.publicPath + 'img/**/*',
+            config.publicPath + 'js/require/**/*',
+            config.publicPath + 'js/vue/**/*',
             config.publicPath + 'js/scripts.*',
             config.publicPath + 'json/**/*',
             config.publicPath + 'svg/**/*'
