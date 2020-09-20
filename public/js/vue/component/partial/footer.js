@@ -1,1 +1,0 @@
-define(["exports","./langswitch"],(function(e,t){"use strict";var a;Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var c={template:'<div class="container"><div class="row"><div class="col-12"><c-langswitch></c-langswitch></div></div></div>',components:{"c-langswitch":(t=(a=t)&&a.__esModule?a:{default:a}).default}};e.default=c}));
