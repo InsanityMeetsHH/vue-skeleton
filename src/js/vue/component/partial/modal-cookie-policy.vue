@@ -18,7 +18,7 @@
                 </div>
                 <div class="modal-body">
                     {{ $t("cl-message") }}<br>
-                    <button class="btn btn-info mt-2" type="button" data-toggle="collapse" data-target="#cookie-policy-collapse" aria-expanded="false" aria-controls="cookie-policy-collapse">
+                    <button class="btn btn-primary mt-2" type="button" data-toggle="collapse" data-target="#cookie-policy-collapse" aria-expanded="false" aria-controls="cookie-policy-collapse">
                         {{ $t("cpm-sdi") }}
                     </button>
 

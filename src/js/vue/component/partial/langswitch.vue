@@ -4,23 +4,25 @@
     
     export default {
         mixins: [cookieConsent, slider],
+        props: {
+            drop: {
+                type: String,
+                default: 'up'
+            }
+        },
         data: function() {
             return {
-                currentLocale: 'en',
+                currentLocale: window.localStorage.getItem('currentLocale') ? window.localStorage.getItem('currentLocale') : 'en',
                 fallbackLocale: 'en',
                 languages: ['en', 'de']
             };
         },
         watch: {
             currentLocale(newLocale) {
-                localStorage.currentLocale = newLocale;
+                window.localStorage.currentLocale = newLocale;
             }
         },
         mounted: function() {
-            if (localStorage.currentLocale) {
-                this.currentLocale = localStorage.currentLocale;
-            }
-
             this.changeLang(this.currentLocale);
         },
         methods: {
@@ -35,18 +37,23 @@
                     $this.initCookieConsent();
                     $this.initSlider();
                 }, 100);
+            },
+            getButtonClass: function() {
+                return 'drop' + this.drop;
             }
         }
     };
 </script>
 
 <template>
-    <div class="btn-group dropup">
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <font-awesome-icon :icon="['fas', 'globe']" />
-        </button>
-        <div class="dropdown-menu">
-            <a v-for="lang in languages" :key="lang" class="dropdown-item" onclick="javascript:return false;" href="#" @click="changeLang(lang)">{{ $t("lang-" + lang) }}</a>
+    <div class="col-auto">
+        <div class="btn-group" :class="getButtonClass()">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <font-awesome-icon :icon="['fas', 'globe']" />
+            </button>
+            <div class="dropdown-menu">
+                <a v-for="lang in languages" :key="lang" class="dropdown-item" onclick="javascript:return false;" href="#" @click="changeLang(lang)">{{ $t("lang-" + lang) }}</a>
+            </div>
         </div>
     </div>
 </template>

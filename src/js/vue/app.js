@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import filters from './app/filters';
 import fontawesome from './app/fontawesome';
 import i18n from './app/i18n';
 import router from './app/router';
@@ -9,6 +10,9 @@ import App from './component/partial/app';
 Vue.component('l-default', DefaultLayout);
 Vue.component('l-empty', EmptyLayout);
 
+Vue.filter('formatDateTime', filters.formatDateTime);
+Vue.filter('formatDuration', filters.formatDuration);
+
 Vue.config.productionTip = false;
 
 const app = new Vue({
@@ -17,3 +21,6 @@ const app = new Vue({
     router: router,
     render: h => h(App)
 }).$mount('#app');
+
+// make app global
+window.app = app;

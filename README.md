@@ -7,7 +7,7 @@
 * [Bootstrap 4](https://getbootstrap.com)
 * [Font Awesome 5](https://fontawesome.com)
 * [Slick Carousel 1](http://kenwheeler.github.io/slick/)
-* [LazyLoad 8](https://www.andreaverlicchi.eu/lazyload/)
+* [LazyLoad 17](https://www.andreaverlicchi.eu/lazyload/)
 * [CSS User Agent 2](https://www.npmjs.com/package/cssuseragent)
 * [Cookieconsent 3](https://github.com/insites/cookieconsent)
 * [Vue 2](https://vuejs.org/)
@@ -19,14 +19,13 @@
 * [Node.js](http://nodejs.org/en/download/)
 * [npm](http://www.npmjs.com/get-npm) `$ npm i npm@latest -g`
 * [gulp-cli](https://www.npmjs.com/package/gulp-cli) `$ npm i gulp-cli@latest -g`
-* PHP >= 5.3
 * [Docker](https://www.docker.com/) ([for installation with Docker](https://github.com/InsanityMeetsHH/vue-skeleton#installation-with-docker))
 
 ## Installation (Recommended)
 ```bash
 $ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git [app-name]
 $ cd [app-name]
-$ rm -rf .git
+$ rm -rf .git (unix) / rmdir .git /s (windows)
 $ npm i
 $ gulp build
 $ gulp (in development)
@@ -37,8 +36,10 @@ Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeet
 |                     | Description                                                                                                                |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------|
 | gulp                | watch files and start [BrowserSync](https://www.npmjs.com/package/browser-sync)                                            |
-| gulp build          | executes following tasks: cleanUp, scss, scssLint, js, jsLint, jsRequire, json, img, font, svg, vue, vueJs, vueLint        |
+| gulp build          | executes following tasks: cleanUp, favicon, font, img, js, jsLint, jsRequire, json, scss, scssLint, svg, vue, vueJs, vueJsLint, vueLint |
+| gulp lintAll        | executes following tasks: jsLint, scssLint, vueJsLint, vueLint                                                             |
 | gulp cleanUp        | clean up public folder                                                                                                     |
+| gulp favicon        | generate favicons                                                                                                          |
 | gulp font           | copy font files                                                                                                            |
 | gulp img            | copy and compress images                                                                                                   |
 | gulp js             | uglify, minify and concat js files                                                                                         |
