@@ -7,7 +7,7 @@
 * [Bootstrap 4](https://getbootstrap.com)
 * [Font Awesome 5](https://fontawesome.com)
 * [Slick Carousel 1](http://kenwheeler.github.io/slick/)
-* [LazyLoad 17](https://www.andreaverlicchi.eu/lazyload/)
+* [LazyLoad 17](https://www.andreaverlicchi.eu/vanilla-lazyload/)
 * [CSS User Agent 2](https://www.npmjs.com/package/cssuseragent)
 * [Cookieconsent 3](https://github.com/insites/cookieconsent)
 * [Vue 2](https://vuejs.org/)
@@ -30,7 +30,10 @@ $ npm i
 $ gulp build
 $ gulp (in development)
 ```
-Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js), if you want to use Docker as server.
+
+Alternative you can checkout [production](https://github.com/InsanityMeetsHH/vue-skeleton/tree/production) branch and skip all npm and gulp commands.
+
+Change [`gulpfile.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/gulpfile.dist.json) if necessary.
 
 ## Project Commands
 |                     | Description                                                                                                                |
@@ -58,6 +61,15 @@ Change `browserSyncInit` task in [`gulpfile.js`](https://github.com/InsanityMeet
 ## Localization
 - [`i18n-locales.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/app/i18n-locales.js)
 - [`langswitch.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/component/partial/langswitch.vue)
+
+## [`gulpfile.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/gulpfile.dist.json)
+|                     | Description                                                                                                                      |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| browserSyncConfig   | Required - Defines which config is used for [BrowserSync](https://www.npmjs.com/package/browser-sync) (default: browserSyncDev)  |
+| sourcePath          | Required - Path to raw files (default: src/)                                                                                     |
+| publicPath          | Required - Path to transpiled files (default: public/)                                                                           |
+| systemPath          | Optional - Alternative Path to transpiled files on CMS, ECS, PHP Framework, ... (default: path/to/system/)                       |
+| env                 | Required - Environment dev, test or prod (default: dev)                                                                          |
 
 ## Installation with [Docker](https://www.docker.com/)
 * Get project via `$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git` or [zip download](https://github.com/InsanityMeetsHH/vue-skeleton/archive/master.zip)
