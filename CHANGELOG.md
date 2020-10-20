@@ -6,7 +6,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.3.0]
+## [1.4.0]
+### Changed
+- [`app/vue-lint.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/vue-lint.json)
+- [`app/router.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/app/router.js)
+- [`README.md`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/README.md)
+- @babel/core 7.11.6 to 7.12.1
+- @fortawesome/fontawesome-free 5.14.0 to 5.15.1
+- @fortawesome/fontawesome-svg-core 1.2.30 to 1.2.32
+- @fortawesome/free-brands-svg-icons 5.14.0 to 5.15.1
+- @fortawesome/free-regular-svg-icons 5.14.0 to 5.15.1
+- @fortawesome/free-solid-svg-icons 5.14.0 to 5.15.1
+- bootstrap 4.5.2 to 4.5.3
+- del 5.1.0 to 6.0.0
+- eslint-plugin-import 2.22.0 to 2.22.1
+- eslint-plugin-vue 6.2.2 to 7.0.1
+- gulp-vue-single-file-component 1.0.12 to 1.0.15
+- i18next 19.7.0 to 19.8.2
+- moment 2.28.0 to 2.29.1
+- vue-i18n 8.21.1 to 8.22.1
+- vue-router 3.4.3 to 3.4.6
+
+## [1.3.0] - 2020-09-20
 ### Added
 - [`partial/naviagation.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/component/partial/naviagation.vue)
 - CSS lazy class in [`page/home.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/component/page/home.vue)
@@ -47,7 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - order of tasks in [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js)
-- favicon html in [`index.html`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/public/index.html)
+- favicon html in [`public/index.html`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/public/index.html)
 - [`require-config.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/module/require-config.js)
 - [`README.md`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/README.md)
 - @babel/core 7.9.0 to 7.10.1
