@@ -2,6 +2,17 @@
 
 [**Demo page**](http://vue.insanitymeetshh.net)
 
+## Table of contents
+- [Included Third Party Code](#included)
+- Install Guides
+    - [Install Production Build (Recommended)](#install-production-build-recommended)
+    - [Install Master/ Develop Build](#install-master-develop-build)
+    - [Install PHP (optional)](#install-php-optional)
+- [Project Commands](#project-commands)
+- [`gulpfile.json`](#gulpfilejson)
+- [Localization](#localization)
+- [Links](#links)
+
 ## Included
 * [jQuery 3](http://jquery.com)
 * [Bootstrap 4](https://getbootstrap.com)
@@ -15,25 +26,50 @@
 * [Vue i18n 8](https://kazupon.github.io/vue-i18n/)
 * [Vue SFC 1](https://github.com/nfplee/gulp-vue-single-file-component)
 
-## Required
-* [Node.js](http://nodejs.org/en/download/)
-* [npm](http://www.npmjs.com/get-npm) `$ npm i npm@latest -g`
-* [gulp-cli](https://www.npmjs.com/package/gulp-cli) `$ npm i gulp-cli@latest -g`
-* [Docker](https://www.docker.com/) ([for installation with Docker](https://github.com/InsanityMeetsHH/vue-skeleton#installation-with-docker))
+## Install Production Build (Recommended)
 
-## Installation (Recommended)
+[Download zip](https://github.com/InsanityMeetsHH/vue-skeleton/archive/production.zip) if you don't have git on your OS.
+Open console on your OS and navigate to your project folder.
 ```bash
-$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git [app-name]
-$ cd [app-name]
-$ rm -rf .git (unix) / rmdir .git /s (windows)
+$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git
+$ cd vue-skeleton
+$ git checkout production
+$ (optional on unix) rm -rf .git
+$ (optional on windows) rmdir .git /s
+```
+If you need PHP, you have to go to [Install PHP](#install-php-optional).
+
+## Install Master/ Develop Build
+### Required
+- [Node.js](http://nodejs.org/en/download/)
+- [npm](http://www.npmjs.com/get-npm) `$ npm i npm@latest -g`
+- [gulp-cli](https://www.npmjs.com/package/gulp-cli) `$ npm i gulp-cli@latest -g`
+
+[Download zip](https://github.com/InsanityMeetsHH/vue-skeleton/archive/master.zip) if you don't have git on your OS.
+Open console on your OS and navigate to your project folder.
+```bash
+$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git
+$ cd vue-skeleton
+$ (optional) git checkout develop
+$ (optional on unix) rm -rf .git
+$ (optional on windows) rmdir .git /s
 $ npm i
 $ gulp build
-$ gulp (in development)
+$ gulp
 ```
+Open [localhost:3000](http://localhost:3000) for Website.
 
-Alternative you can checkout [production](https://github.com/InsanityMeetsHH/vue-skeleton/tree/production) branch and skip all npm and gulp commands.
+## Install PHP (optional)
+### Required
+- [Docker](https://www.docker.com/)
 
-Change [`gulpfile.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/gulpfile.dist.json) if necessary.
+Open console on your OS and navigate to the unziped/ cloned app folder.
+```bash
+$ (unix) systemctl docker start
+$ (windows) "c:\path\to\Docker Desktop.exe"
+$ docker-compose up -d
+```
+Open [localhost:3050](http://localhost:3050) for Website.
 
 ## Project Commands
 |                     | Description                                                                                                                |
@@ -70,16 +106,6 @@ Change [`gulpfile.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/ma
 | publicPath          | Required - Path to transpiled files (default: public/)                                                                           |
 | systemPath          | Optional - Alternative Path to transpiled files on CMS, ECS, PHP Framework, ... (default: path/to/system/)                       |
 | env                 | Required - Environment dev, test or prod (default: dev)                                                                          |
-
-## Installation with [Docker](https://www.docker.com/)
-* Get project via `$ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git` or [zip download](https://github.com/InsanityMeetsHH/vue-skeleton/archive/master.zip)
-* Open a command prompt on your OS (if not already open) and navigate to the project folder
-* `$ npm i`
-* `$ gulp build`
-* `$ docker-compose up -d`
-* Open [localhost:3050](http://localhost:3050) for website
-* If you want to remove the container `$ docker rm vue-skeleton -f`
-* If you want to remove the volume `$ docker volume rm DIRNAME_logs` (first remove matching container)
 
 ## Links
 * [ESLint Js Rules](https://eslint.org/docs/rules/)
