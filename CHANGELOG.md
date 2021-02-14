@@ -6,12 +6,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.4.0]
+## [1.5.0]
+### Changed
+- [`public/.htaccess`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/public/.htaccess)
+- [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js)
+- [`README.md`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/README.md)
+- [`.gitignore`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/.gitignore)
+- @babel/core 7.12.1 to 7.12.16
+- @babel/plugin-transform-modules-amd 7.12.1 to 7.12.13
+- @fortawesome/fontawesome-free 5.15.1 to 5.15.2
+- @fortawesome/fontawesome-svg-core 1.2.32 to 1.2.34
+- @fortawesome/free-brands-svg-icons 5.15.1 to 5.15.2
+- @fortawesome/free-regular-svg-icons 5.15.1 to 5.15.2
+- @fortawesome/free-solid-svg-icons 5.15.1 to 5.15.2
+- bootstrap 4.5.3 to 4.6.0
+- browser-sync 2.26.13 to 2.26.14
+- eslint-plugin-vue 7.0.1 to 7.5.0
+- gulp-favicons 2.4.0 to 3.0.0
+- gulp-sourcemaps 2.6.5 to 3.0.0
+- vanilla-lazyload 17.1.3 to 17.3.1
+- vue-i18n 8.22.1 to 8.22.4
+- vue-router 3.4.6 to 3.5.1
+
+## [1.4.0] - 2020-10-20
 ### Changed
 - [`app/vue-lint.json`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/app/vue-lint.json)
 - [`app/router.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/app/router.js)
 - [`README.md`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/README.md)
-- @babel/core 7.11.6 to 7.12.1
+- @babel/core 7.11.6 to 7.12.3
 - @fortawesome/fontawesome-free 5.14.0 to 5.15.1
 - @fortawesome/fontawesome-svg-core 1.2.30 to 1.2.32
 - @fortawesome/free-brands-svg-icons 5.14.0 to 5.15.1
@@ -22,7 +44,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - eslint-plugin-import 2.22.0 to 2.22.1
 - eslint-plugin-vue 6.2.2 to 7.0.1
 - gulp-vue-single-file-component 1.0.12 to 1.0.15
-- i18next 19.7.0 to 19.8.2
 - moment 2.28.0 to 2.29.1
 - vue-i18n 8.21.1 to 8.22.1
 - vue-router 3.4.3 to 3.4.6
