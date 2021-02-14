@@ -46,7 +46,7 @@ If you need PHP, you have to go to [Install PHP](#install-php-optional).
 - [gulp-cli](https://www.npmjs.com/package/gulp-cli) `$ npm i gulp-cli@latest -g`
 
 [Download zip](https://github.com/InsanityMeetsHH/vue-skeleton/archive/master.zip) if you don't have git on your OS.
-Open 2 consoles on your OS and navigate both to your project folder.
+Open console on your OS and navigate to your project folder.
 ```bash
 $ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git
 $ cd vue-skeleton
@@ -55,7 +55,9 @@ $ (optional on unix) rm -rf .git
 $ (optional on windows) rmdir .git /s
 $ npm i
 $ gulp build
+$ gulp
 ```
+Open [localhost:3000](http://localhost:3000) for Website.
 
 ## Install PHP (optional)
 ### Required
