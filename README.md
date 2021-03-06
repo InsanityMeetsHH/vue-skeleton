@@ -31,6 +31,7 @@
 [Download zip](https://github.com/InsanityMeetsHH/vue-skeleton/archive/production.zip) if you don't have git on your OS.
 Open console on your OS and navigate to your project folder.
 ```bash
+$ (optional) php composer create-project insanitymeetshh/vue-skeleton vue-skeleton "dev-production"
 $ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git
 $ cd vue-skeleton
 $ git checkout production
@@ -48,6 +49,7 @@ If you need PHP, you have to go to [Install PHP](#install-php-optional).
 [Download zip](https://github.com/InsanityMeetsHH/vue-skeleton/archive/master.zip) if you don't have git on your OS.
 Open console on your OS and navigate to your project folder.
 ```bash
+$ (optional) php composer create-project insanitymeetshh/vue-skeleton
 $ git clone https://github.com/InsanityMeetsHH/vue-skeleton.git
 $ cd vue-skeleton
 $ (optional) git checkout develop
