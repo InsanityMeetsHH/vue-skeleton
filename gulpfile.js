@@ -136,7 +136,7 @@ function jsLint() {
     return lint(gulp, eslint, [config.sourcePath + 'js/{lib,module,plugin}/*.js', config.sourcePath + 'js/scripts.js'], 'js');
 }
 
-// uglify required js files
+// uglify require js files
 function jsRequire() {
     let returnValue;
     const modules = {

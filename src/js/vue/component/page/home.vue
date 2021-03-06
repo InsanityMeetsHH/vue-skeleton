@@ -1,7 +1,7 @@
 <script>
-    import cssuaMonitor from '../../method/cssua-monitor';
-    import imageLazyLoad from '../../method/image-lazyload';
-    import slider from '../../method/slider';
+    import cssuaMonitor from '../../module/cssua-monitor';
+    import imageLazyLoad from '../../module/image-lazyload';
+    import slider from '../../module/slider';
     
     export default {
         mixins: [cssuaMonitor, imageLazyLoad, slider],

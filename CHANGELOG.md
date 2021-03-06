@@ -6,7 +6,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.5.0]
+## [1.6.0]
+### Changed
+- [`partial/app.vue`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/component/partial/app.vue)
+- [`README.md`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/README.md)
+- [`.gitignore`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/.gitignore)
+- @babel/core 7.12.16 to 7.13.8
+- @babel/plugin-transform-modules-amd 7.12.13 to 7.13.0
+- eslint-plugin-vue 7.5.0 to 7.7.0
+- jquery 3.5.1 to 3.6.0
+- vue-i18n 8.22.4 to 8.23.0
+
+### Removed
+- `vue/method` and replaced with [`vue/module`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/src/js/vue/module)
+- `vue/app/methods.js`
+
+## [1.5.0] - 2021-02-14
 ### Changed
 - [`public/.htaccess`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/public/.htaccess)
 - [`gulpfile.js`](https://github.com/InsanityMeetsHH/vue-skeleton/blob/master/gulpfile.js)

@@ -1,6 +1,6 @@
 <script>
-    import cookieConsent from '../../method/cookie-consent';
-    import slider from '../../method/slider';
+    import cookieConsent from '../../module/cookie-consent';
+    import slider from '../../module/slider';
     
     export default {
         mixins: [cookieConsent, slider],
